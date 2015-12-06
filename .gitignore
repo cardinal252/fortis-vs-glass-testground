@@ -1,0 +1,16 @@
+# git ignore file
+_Lib*/
+packages*/
+obj*/
+bin*/
+Testground.TDS.Content/Debug*/
+Testground.TDS.Content/IconCache*/
+Testground.TDS.Fortis.Master/Debug*/
+Testground.TDS.Fortis.Master/IconCache*/
+Testground.TDS.Fortis.Master/T4RenderCache*/
+Testground.TDS.Glass.Master/Debug*/
+Testground.TDS.Glass.Master/IconCache*/
+Testground.TDS.Glass.Master/T4RenderCache*/
+Testground.TDS.Content/BuiltFiles_Debug.txt
+Testground.TDS.Fortis.Master/BuiltFiles_Debug.txt
+Testground.TDS.Glass.Master/BuiltFiles_Debug.txt

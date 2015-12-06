@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testground.Website", "Testground.Website\Testground.Website.csproj", "{EC207579-CB9D-43AB-BE60-4E4224375707}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TDS", "TDS", "{4C687FD8-3DAF-4F6D-9700-CD07E7324945}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Testground.TDS.Fortis.Master", "Testground.TDS.Fortis.Master\Testground.TDS.Fortis.Master.scproj", "{83843087-4128-4391-A4CF-6537765E870E}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Testground.TDS.Glass.Master", "Testground.TDS.Glass.Master\Testground.TDS.Glass.Master.scproj", "{048959C3-48D8-499D-BC3F-730F71FEA8C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testground.Model.Glass", "Testground.Model.Glass\Testground.Model.Glass.csproj", "{6D0BC6D6-3337-4D7D-82D9-2A7BB36D9A84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testground.Model.Fortis", "Testground.Model.Fortis\Testground.Model.Fortis.csproj", "{7DF3E2FA-C501-4D9B-923C-7A8ADDA8FF20}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Testground.TDS.Content", "Testground.TDS.Content\Testground.TDS.Content.scproj", "{BA24BD98-1729-4A8C-8244-2B017193BB0E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CA8C345B-29DF-465B-9B69-8D56172DF978}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC207579-CB9D-43AB-BE60-4E4224375707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC207579-CB9D-43AB-BE60-4E4224375707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC207579-CB9D-43AB-BE60-4E4224375707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC207579-CB9D-43AB-BE60-4E4224375707}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83843087-4128-4391-A4CF-6537765E870E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83843087-4128-4391-A4CF-6537765E870E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83843087-4128-4391-A4CF-6537765E870E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{83843087-4128-4391-A4CF-6537765E870E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83843087-4128-4391-A4CF-6537765E870E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83843087-4128-4391-A4CF-6537765E870E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{048959C3-48D8-499D-BC3F-730F71FEA8C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{048959C3-48D8-499D-BC3F-730F71FEA8C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{048959C3-48D8-499D-BC3F-730F71FEA8C5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{048959C3-48D8-499D-BC3F-730F71FEA8C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{048959C3-48D8-499D-BC3F-730F71FEA8C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{048959C3-48D8-499D-BC3F-730F71FEA8C5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6D0BC6D6-3337-4D7D-82D9-2A7BB36D9A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D0BC6D6-3337-4D7D-82D9-2A7BB36D9A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D0BC6D6-3337-4D7D-82D9-2A7BB36D9A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D0BC6D6-3337-4D7D-82D9-2A7BB36D9A84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DF3E2FA-C501-4D9B-923C-7A8ADDA8FF20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF3E2FA-C501-4D9B-923C-7A8ADDA8FF20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF3E2FA-C501-4D9B-923C-7A8ADDA8FF20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF3E2FA-C501-4D9B-923C-7A8ADDA8FF20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA24BD98-1729-4A8C-8244-2B017193BB0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA24BD98-1729-4A8C-8244-2B017193BB0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA24BD98-1729-4A8C-8244-2B017193BB0E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BA24BD98-1729-4A8C-8244-2B017193BB0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA24BD98-1729-4A8C-8244-2B017193BB0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA24BD98-1729-4A8C-8244-2B017193BB0E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{83843087-4128-4391-A4CF-6537765E870E} = {4C687FD8-3DAF-4F6D-9700-CD07E7324945}
+		{048959C3-48D8-499D-BC3F-730F71FEA8C5} = {4C687FD8-3DAF-4F6D-9700-CD07E7324945}
+		{BA24BD98-1729-4A8C-8244-2B017193BB0E} = {4C687FD8-3DAF-4F6D-9700-CD07E7324945}
+	EndGlobalSection
+EndGlobal
