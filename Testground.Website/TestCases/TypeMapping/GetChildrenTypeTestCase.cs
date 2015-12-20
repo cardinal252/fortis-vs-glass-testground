@@ -11,7 +11,7 @@ namespace Testground.Website.TestCases.TypeMapping
 	{
 		private IEnumerable<Item> SitecoreItems;
 		private IEnumerable<INavigation> GlassItems;
-		private IEnumerable<Model.Fortis.Templates.UserDefined.INavigation> FortisItems;
+		private IEnumerable<Model.Fortis.Templates.UserDefined.INavigationItem> FortisItems;
 
 		public GetChildrenTypeTestCase(IItemFactory fortisService, ISitecoreContext glassService) 
 			: base(fortisService, glassService)
@@ -29,7 +29,7 @@ namespace Testground.Website.TestCases.TypeMapping
 				Const.ContentPageID,
 				Const.ItemCount);
 
-			this.FortisItems = this.GetFortisItems<Model.Fortis.Templates.UserDefined.INavigation>(
+			this.FortisItems = this.GetFortisItems<Model.Fortis.Templates.UserDefined.INavigationItem>(
 				Const.ContentPageID,
 				Const.ItemCount);
 
@@ -50,7 +50,7 @@ namespace Testground.Website.TestCases.TypeMapping
 		{
 			foreach (var item in this.FortisItems)
 			{
-				var children = item.Children<Model.Fortis.Templates.UserDefined.INavigation>().ToList();
+				var children = item.Children<Model.Fortis.Templates.UserDefined.INavigationItem>().ToList();
 			}
 		}
 

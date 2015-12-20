@@ -38,7 +38,7 @@ namespace Testground.Website.TestCases.TypeMapping
 		{
 			foreach (var item in this.SitecoreItems)
 			{
-				var obj = this.SpawnProvider.FromItem<Model.Fortis.Templates.UserDefined.INavigation>(item);
+				var obj = this.SpawnProvider.FromItem<Model.Fortis.Templates.UserDefined.INavigationItem>(item);
 			}
 		}
 

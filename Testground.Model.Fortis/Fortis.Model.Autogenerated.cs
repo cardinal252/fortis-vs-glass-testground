@@ -2,7 +2,51 @@ using Sitecore.Data.Items;
 using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.Linq.Common;
 
+#region Custom Item Wrapper (Extendable base class)
+
+namespace Testground.Model.Fortis
+{
+	using System;
+	using System.Collections.Generic;
+	using global::Fortis.Model;
+	using global::Fortis.Providers;
+
+	/*
+		To extend base ItemWrapper class and its interface, create partial class CustomItemWrapper 
+		in your model project and add required properties or methods to there.
+	*/
+	public partial interface ICustomItemWrapper : IItemWrapper
+	{
+	}
+
+	public partial class CustomItemWrapper : ItemWrapper, ICustomItemWrapper
+	{
+		public CustomItemWrapper(ISpawnProvider spawnProvider) 
+			: base(spawnProvider)
+		{
+		}
+
+		public CustomItemWrapper(Item item, ISpawnProvider spawnProvider) 
+			: base(item, spawnProvider)
+		{
+		}
+
+		public CustomItemWrapper(Guid id, ISpawnProvider spawnProvider) 
+			: base(id, spawnProvider)
+		{
+		}
+
+		public CustomItemWrapper(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) 
+			: base(id, lazyFields, spawnProvider)
+		{
+		}
+	}
+}
+
+#endregion
+
 #region Title Field (UserDefined)
+
 namespace Testground.Model.Fortis.Templates.UserDefined
 {
 	using System;
@@ -18,61 +62,82 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 	/// <para>ID: {352C79B1-B75C-4918-9B5F-FEE4BFFA5642}</para>
 	/// <para>/sitecore/templates/User Defined/Data/Title Field</para>
 	/// </summary>
-	[TemplateMapping("{352C79B1-B75C-4918-9B5F-FEE4BFFA5642}", "InterfaceMap")]
-	public partial interface ITitleField : IItemWrapper 
+	[TemplateMapping(TitleFieldItem.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface ITitleFieldItem : ICustomItemWrapper 
 	{		
 		/// <summary>
 		/// <para>Template: Title Field</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para>
 		/// </summary>
-		[IndexField("content_title")]
+		[IndexField(TitleFieldItem.IndexFieldNames.ContentTitle)]
 		ITextFieldWrapper ContentTitle { get; }
 
 		/// <summary>
 		/// <para>Template: Title Field</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para>
 		/// </summary>
-		[IndexField("content_title")]
+		[IndexField(TitleFieldItem.IndexFieldNames.ContentTitle)]
 		string ContentTitleValue { get; }
 	}
 
 	/// <summary>
 	/// <para>Template class</para><para>/sitecore/templates/User Defined/Data/Title Field</para>
 	/// </summary>
-	[PredefinedQuery("TemplateId", ComparisonType.Equal, "{352C79B1-B75C-4918-9B5F-FEE4BFFA5642}", typeof(Guid))]
-	[TemplateMapping("{352C79B1-B75C-4918-9B5F-FEE4BFFA5642}", "")]
-	public partial class TitleField : ItemWrapper, ITitleField
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, TitleFieldItem.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(TitleFieldItem.Constants.TemplateIdStr, "")]
+	public partial class TitleFieldItem : CustomItemWrapper, ITitleFieldItem
 	{
 		private Item _item = null;
 
-		public TitleField(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+		public TitleFieldItem(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
 
-		public TitleField(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+		public TitleFieldItem(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
 
-		public TitleField(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+		public TitleFieldItem(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
 
-		public TitleField(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		public TitleFieldItem(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
 		{
 			_item = item;
 		}
 
 		/// <summary><para>Template: Title Field</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("content_title")]
+		[IndexField(IndexFieldNames.ContentTitle)]
 		public virtual ITextFieldWrapper ContentTitle
 		{
-			get { return GetField<TextFieldWrapper>("Content Title", "content_title"); }
+			get { return GetField<TextFieldWrapper>(FieldNames.ContentTitle, IndexFieldNames.ContentTitle); }
 		}
 
 		/// <summary><para>Template: Title Field</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("content_title")]
+		[IndexField(IndexFieldNames.ContentTitle)]
 		public string ContentTitleValue
 		{
 			get { return ContentTitle.Value; }
 		}
 	
+		#region TitleFieldItem Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{352C79B1-B75C-4918-9B5F-FEE4BFFA5642}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string ContentTitle = "Content Title";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string ContentTitle = "content_title";
+		}
+
+		#endregion
 	}
 }
+
 #endregion
 
 #region Body Field (UserDefined)
+
 namespace Testground.Model.Fortis.Templates.UserDefined
 {
 	using System;
@@ -88,61 +153,82 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 	/// <para>ID: {4210390C-AD6B-451E-ABDB-7F4F04377778}</para>
 	/// <para>/sitecore/templates/User Defined/Data/Body Field</para>
 	/// </summary>
-	[TemplateMapping("{4210390C-AD6B-451E-ABDB-7F4F04377778}", "InterfaceMap")]
-	public partial interface IBodyField : IItemWrapper 
+	[TemplateMapping(BodyFieldItem.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface IBodyFieldItem : ICustomItemWrapper 
 	{		
 		/// <summary>
 		/// <para>Template: Body Field</para><para>Field: ContentBody</para><para>Data type: Rich Text</para>
 		/// </summary>
-		[IndexField("content_body")]
+		[IndexField(BodyFieldItem.IndexFieldNames.ContentBody)]
 		IRichTextFieldWrapper ContentBody { get; }
 
 		/// <summary>
 		/// <para>Template: Body Field</para><para>Field: ContentBody</para><para>Data type: Rich Text</para>
 		/// </summary>
-		[IndexField("content_body")]
+		[IndexField(BodyFieldItem.IndexFieldNames.ContentBody)]
 		string ContentBodyValue { get; }
 	}
 
 	/// <summary>
 	/// <para>Template class</para><para>/sitecore/templates/User Defined/Data/Body Field</para>
 	/// </summary>
-	[PredefinedQuery("TemplateId", ComparisonType.Equal, "{4210390C-AD6B-451E-ABDB-7F4F04377778}", typeof(Guid))]
-	[TemplateMapping("{4210390C-AD6B-451E-ABDB-7F4F04377778}", "")]
-	public partial class BodyField : ItemWrapper, IBodyField
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, BodyFieldItem.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(BodyFieldItem.Constants.TemplateIdStr, "")]
+	public partial class BodyFieldItem : CustomItemWrapper, IBodyFieldItem
 	{
 		private Item _item = null;
 
-		public BodyField(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+		public BodyFieldItem(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
 
-		public BodyField(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+		public BodyFieldItem(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
 
-		public BodyField(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+		public BodyFieldItem(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
 
-		public BodyField(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		public BodyFieldItem(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
 		{
 			_item = item;
 		}
 
 		/// <summary><para>Template: Body Field</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
-		[IndexField("content_body")]
+		[IndexField(IndexFieldNames.ContentBody)]
 		public virtual IRichTextFieldWrapper ContentBody
 		{
-			get { return GetField<RichTextFieldWrapper>("Content Body", "content_body"); }
+			get { return GetField<RichTextFieldWrapper>(FieldNames.ContentBody, IndexFieldNames.ContentBody); }
 		}
 
 		/// <summary><para>Template: Body Field</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
-		[IndexField("content_body")]
+		[IndexField(IndexFieldNames.ContentBody)]
 		public string ContentBodyValue
 		{
 			get { return ContentBody.Value; }
 		}
 	
+		#region BodyFieldItem Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{4210390C-AD6B-451E-ABDB-7F4F04377778}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string ContentBody = "Content Body";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string ContentBody = "content_body";
+		}
+
+		#endregion
 	}
 }
+
 #endregion
 
 #region Image Field (UserDefined)
+
 namespace Testground.Model.Fortis.Templates.UserDefined
 {
 	using System;
@@ -158,8 +244,8 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 	/// <para>ID: {54A1B008-7584-4260-8571-2645F3C5786D}</para>
 	/// <para>/sitecore/templates/User Defined/Data/Image Field</para>
 	/// </summary>
-	[TemplateMapping("{54A1B008-7584-4260-8571-2645F3C5786D}", "InterfaceMap")]
-	public partial interface IImageField : IItemWrapper 
+	[TemplateMapping(ImageFieldItem.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface IImageFieldItem : ICustomItemWrapper 
 	{		
 		/// <summary>
 		/// <para>Template: Image Field</para><para>Field: ContentImage</para><para>Data type: Image</para>
@@ -171,19 +257,19 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 	/// <summary>
 	/// <para>Template class</para><para>/sitecore/templates/User Defined/Data/Image Field</para>
 	/// </summary>
-	[PredefinedQuery("TemplateId", ComparisonType.Equal, "{54A1B008-7584-4260-8571-2645F3C5786D}", typeof(Guid))]
-	[TemplateMapping("{54A1B008-7584-4260-8571-2645F3C5786D}", "")]
-	public partial class ImageField : ItemWrapper, IImageField
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, ImageFieldItem.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(ImageFieldItem.Constants.TemplateIdStr, "")]
+	public partial class ImageFieldItem : CustomItemWrapper, IImageFieldItem
 	{
 		private Item _item = null;
 
-		public ImageField(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+		public ImageFieldItem(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
 
-		public ImageField(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+		public ImageFieldItem(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
 
-		public ImageField(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+		public ImageFieldItem(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
 
-		public ImageField(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		public ImageFieldItem(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
 		{
 			_item = item;
 		}
@@ -191,7 +277,7 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 		/// <summary><para>Template: Image Field</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
 		public virtual IImageFieldWrapper ContentImage
 		{
-			get { return GetField<ImageFieldWrapper>("Content Image"); }
+			get { return GetField<ImageFieldWrapper>(FieldNames.ContentImage); }
 		}
 
 		/// <summary><para>Template: Image Field</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
@@ -200,11 +286,32 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 			get { return ContentImage.Value; }
 		}
 	
+		#region ImageFieldItem Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{54A1B008-7584-4260-8571-2645F3C5786D}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string ContentImage = "Content Image";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string ContentImage = "content_image";
+		}
+
+		#endregion
 	}
 }
+
 #endregion
 
 #region Content Page (UserDefined)
+
 namespace Testground.Model.Fortis.Templates.UserDefined
 {
 	using System;
@@ -220,79 +327,79 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 	/// <para>ID: {8DAC2938-20EC-4CB0-BA4E-0DE432AA369E}</para>
 	/// <para>/sitecore/templates/User Defined/Page Types/Content Page</para>
 	/// </summary>
-	[TemplateMapping("{8DAC2938-20EC-4CB0-BA4E-0DE432AA369E}", "InterfaceMap")]
-	public partial interface IContentPage : IItemWrapper , Testground.Model.Fortis.Templates.UserDefined.INavigation, Testground.Model.Fortis.Templates.UserDefined.ITitleField, Testground.Model.Fortis.Templates.UserDefined.IBodyField, Testground.Model.Fortis.Templates.UserDefined.IImageField, Testground.Model.Fortis.Templates.UserDefined.ISeo
+	[TemplateMapping(ContentPageItem.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface IContentPageItem : ICustomItemWrapper , Testground.Model.Fortis.Templates.UserDefined.INavigationItem, Testground.Model.Fortis.Templates.UserDefined.ITitleFieldItem, Testground.Model.Fortis.Templates.UserDefined.IBodyFieldItem, Testground.Model.Fortis.Templates.UserDefined.IImageFieldItem, Testground.Model.Fortis.Templates.UserDefined.ISeoItem
 	{		
 	}
 
 	/// <summary>
 	/// <para>Template class</para><para>/sitecore/templates/User Defined/Page Types/Content Page</para>
 	/// </summary>
-	[PredefinedQuery("TemplateId", ComparisonType.Equal, "{8DAC2938-20EC-4CB0-BA4E-0DE432AA369E}", typeof(Guid))]
-	[TemplateMapping("{8DAC2938-20EC-4CB0-BA4E-0DE432AA369E}", "")]
-	public partial class ContentPage : ItemWrapper, IContentPage
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, ContentPageItem.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(ContentPageItem.Constants.TemplateIdStr, "")]
+	public partial class ContentPageItem : CustomItemWrapper, IContentPageItem
 	{
 		private Item _item = null;
 
-		public ContentPage(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+		public ContentPageItem(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
 
-		public ContentPage(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+		public ContentPageItem(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
 
-		public ContentPage(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+		public ContentPageItem(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
 
-		public ContentPage(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		public ContentPageItem(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
 		{
 			_item = item;
 		}
 
 		/// <summary><para>Template: Content Page</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
-		[IndexField("hide_from_navigation")]
+		[IndexField(IndexFieldNames.HideFromNavigation)]
 		public virtual IBooleanFieldWrapper HideFromNavigation
 		{
-			get { return GetField<BooleanFieldWrapper>("Hide From Navigation", "hide_from_navigation"); }
+			get { return GetField<BooleanFieldWrapper>(FieldNames.HideFromNavigation, IndexFieldNames.HideFromNavigation); }
 		}
 
 		/// <summary><para>Template: Content Page</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
-		[IndexField("hide_from_navigation")]
+		[IndexField(IndexFieldNames.HideFromNavigation)]
 		public bool HideFromNavigationValue
 		{
 			get { return HideFromNavigation.Value; }
 		}
 		/// <summary><para>Template: Content Page</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("navigation_title")]
+		[IndexField(IndexFieldNames.NavigationTitle)]
 		public virtual ITextFieldWrapper NavigationTitle
 		{
-			get { return GetField<TextFieldWrapper>("Navigation Title", "navigation_title"); }
+			get { return GetField<TextFieldWrapper>(FieldNames.NavigationTitle, IndexFieldNames.NavigationTitle); }
 		}
 
 		/// <summary><para>Template: Content Page</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("navigation_title")]
+		[IndexField(IndexFieldNames.NavigationTitle)]
 		public string NavigationTitleValue
 		{
 			get { return NavigationTitle.Value; }
 		}
 		/// <summary><para>Template: Content Page</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("content_title")]
+		[IndexField(IndexFieldNames.ContentTitle)]
 		public virtual ITextFieldWrapper ContentTitle
 		{
-			get { return GetField<TextFieldWrapper>("Content Title", "content_title"); }
+			get { return GetField<TextFieldWrapper>(FieldNames.ContentTitle, IndexFieldNames.ContentTitle); }
 		}
 
 		/// <summary><para>Template: Content Page</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("content_title")]
+		[IndexField(IndexFieldNames.ContentTitle)]
 		public string ContentTitleValue
 		{
 			get { return ContentTitle.Value; }
 		}
 		/// <summary><para>Template: Content Page</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
-		[IndexField("content_body")]
+		[IndexField(IndexFieldNames.ContentBody)]
 		public virtual IRichTextFieldWrapper ContentBody
 		{
-			get { return GetField<RichTextFieldWrapper>("Content Body", "content_body"); }
+			get { return GetField<RichTextFieldWrapper>(FieldNames.ContentBody, IndexFieldNames.ContentBody); }
 		}
 
 		/// <summary><para>Template: Content Page</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
-		[IndexField("content_body")]
+		[IndexField(IndexFieldNames.ContentBody)]
 		public string ContentBodyValue
 		{
 			get { return ContentBody.Value; }
@@ -300,7 +407,7 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 		/// <summary><para>Template: Content Page</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
 		public virtual IImageFieldWrapper ContentImage
 		{
-			get { return GetField<ImageFieldWrapper>("Content Image"); }
+			get { return GetField<ImageFieldWrapper>(FieldNames.ContentImage); }
 		}
 
 		/// <summary><para>Template: Content Page</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
@@ -309,50 +416,85 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 			get { return ContentImage.Value; }
 		}
 		/// <summary><para>Template: Content Page</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("meta_description")]
+		[IndexField(IndexFieldNames.MetaDescription)]
 		public virtual ITextFieldWrapper MetaDescription
 		{
-			get { return GetField<TextFieldWrapper>("Meta Description", "meta_description"); }
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaDescription, IndexFieldNames.MetaDescription); }
 		}
 
 		/// <summary><para>Template: Content Page</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("meta_description")]
+		[IndexField(IndexFieldNames.MetaDescription)]
 		public string MetaDescriptionValue
 		{
 			get { return MetaDescription.Value; }
 		}
 		/// <summary><para>Template: Content Page</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("meta_keywords")]
+		[IndexField(IndexFieldNames.MetaKeywords)]
 		public virtual ITextFieldWrapper MetaKeywords
 		{
-			get { return GetField<TextFieldWrapper>("Meta Keywords", "meta_keywords"); }
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaKeywords, IndexFieldNames.MetaKeywords); }
 		}
 
 		/// <summary><para>Template: Content Page</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("meta_keywords")]
+		[IndexField(IndexFieldNames.MetaKeywords)]
 		public string MetaKeywordsValue
 		{
 			get { return MetaKeywords.Value; }
 		}
 		/// <summary><para>Template: Content Page</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("meta_title")]
+		[IndexField(IndexFieldNames.MetaTitle)]
 		public virtual ITextFieldWrapper MetaTitle
 		{
-			get { return GetField<TextFieldWrapper>("Meta Title", "meta_title"); }
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaTitle, IndexFieldNames.MetaTitle); }
 		}
 
 		/// <summary><para>Template: Content Page</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("meta_title")]
+		[IndexField(IndexFieldNames.MetaTitle)]
 		public string MetaTitleValue
 		{
 			get { return MetaTitle.Value; }
 		}
 	
+		#region ContentPageItem Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{8DAC2938-20EC-4CB0-BA4E-0DE432AA369E}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string HideFromNavigation = "Hide From Navigation";
+			public const string NavigationTitle = "Navigation Title";
+			public const string ContentTitle = "Content Title";
+			public const string ContentBody = "Content Body";
+			public const string ContentImage = "Content Image";
+			public const string MetaDescription = "Meta Description";
+			public const string MetaKeywords = "Meta Keywords";
+			public const string MetaTitle = "Meta Title";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string HideFromNavigation = "hide_from_navigation";
+			public const string NavigationTitle = "navigation_title";
+			public const string ContentTitle = "content_title";
+			public const string ContentBody = "content_body";
+			public const string ContentImage = "content_image";
+			public const string MetaDescription = "meta_description";
+			public const string MetaKeywords = "meta_keywords";
+			public const string MetaTitle = "meta_title";
+		}
+
+		#endregion
 	}
 }
+
 #endregion
 
 #region Seo (UserDefined)
+
 namespace Testground.Model.Fortis.Templates.UserDefined
 {
 	using System;
@@ -368,109 +510,134 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 	/// <para>ID: {A7CB2CD5-C4B1-46A6-B92F-4EF8185B45EC}</para>
 	/// <para>/sitecore/templates/User Defined/Data/Seo</para>
 	/// </summary>
-	[TemplateMapping("{A7CB2CD5-C4B1-46A6-B92F-4EF8185B45EC}", "InterfaceMap")]
-	public partial interface ISeo : IItemWrapper 
+	[TemplateMapping(SeoItem.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface ISeoItem : ICustomItemWrapper 
 	{		
 		/// <summary>
 		/// <para>Template: Seo</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para>
 		/// </summary>
-		[IndexField("meta_description")]
+		[IndexField(SeoItem.IndexFieldNames.MetaDescription)]
 		ITextFieldWrapper MetaDescription { get; }
 
 		/// <summary>
 		/// <para>Template: Seo</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para>
 		/// </summary>
-		[IndexField("meta_description")]
+		[IndexField(SeoItem.IndexFieldNames.MetaDescription)]
 		string MetaDescriptionValue { get; }
 		/// <summary>
 		/// <para>Template: Seo</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para>
 		/// </summary>
-		[IndexField("meta_keywords")]
+		[IndexField(SeoItem.IndexFieldNames.MetaKeywords)]
 		ITextFieldWrapper MetaKeywords { get; }
 
 		/// <summary>
 		/// <para>Template: Seo</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para>
 		/// </summary>
-		[IndexField("meta_keywords")]
+		[IndexField(SeoItem.IndexFieldNames.MetaKeywords)]
 		string MetaKeywordsValue { get; }
 		/// <summary>
 		/// <para>Template: Seo</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para>
 		/// </summary>
-		[IndexField("meta_title")]
+		[IndexField(SeoItem.IndexFieldNames.MetaTitle)]
 		ITextFieldWrapper MetaTitle { get; }
 
 		/// <summary>
 		/// <para>Template: Seo</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para>
 		/// </summary>
-		[IndexField("meta_title")]
+		[IndexField(SeoItem.IndexFieldNames.MetaTitle)]
 		string MetaTitleValue { get; }
 	}
 
 	/// <summary>
 	/// <para>Template class</para><para>/sitecore/templates/User Defined/Data/Seo</para>
 	/// </summary>
-	[PredefinedQuery("TemplateId", ComparisonType.Equal, "{A7CB2CD5-C4B1-46A6-B92F-4EF8185B45EC}", typeof(Guid))]
-	[TemplateMapping("{A7CB2CD5-C4B1-46A6-B92F-4EF8185B45EC}", "")]
-	public partial class Seo : ItemWrapper, ISeo
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, SeoItem.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(SeoItem.Constants.TemplateIdStr, "")]
+	public partial class SeoItem : CustomItemWrapper, ISeoItem
 	{
 		private Item _item = null;
 
-		public Seo(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+		public SeoItem(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
 
-		public Seo(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+		public SeoItem(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
 
-		public Seo(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+		public SeoItem(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
 
-		public Seo(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		public SeoItem(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
 		{
 			_item = item;
 		}
 
 		/// <summary><para>Template: Seo</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("meta_description")]
+		[IndexField(IndexFieldNames.MetaDescription)]
 		public virtual ITextFieldWrapper MetaDescription
 		{
-			get { return GetField<TextFieldWrapper>("Meta Description", "meta_description"); }
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaDescription, IndexFieldNames.MetaDescription); }
 		}
 
 		/// <summary><para>Template: Seo</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("meta_description")]
+		[IndexField(IndexFieldNames.MetaDescription)]
 		public string MetaDescriptionValue
 		{
 			get { return MetaDescription.Value; }
 		}
 		/// <summary><para>Template: Seo</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("meta_keywords")]
+		[IndexField(IndexFieldNames.MetaKeywords)]
 		public virtual ITextFieldWrapper MetaKeywords
 		{
-			get { return GetField<TextFieldWrapper>("Meta Keywords", "meta_keywords"); }
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaKeywords, IndexFieldNames.MetaKeywords); }
 		}
 
 		/// <summary><para>Template: Seo</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("meta_keywords")]
+		[IndexField(IndexFieldNames.MetaKeywords)]
 		public string MetaKeywordsValue
 		{
 			get { return MetaKeywords.Value; }
 		}
 		/// <summary><para>Template: Seo</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("meta_title")]
+		[IndexField(IndexFieldNames.MetaTitle)]
 		public virtual ITextFieldWrapper MetaTitle
 		{
-			get { return GetField<TextFieldWrapper>("Meta Title", "meta_title"); }
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaTitle, IndexFieldNames.MetaTitle); }
 		}
 
 		/// <summary><para>Template: Seo</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("meta_title")]
+		[IndexField(IndexFieldNames.MetaTitle)]
 		public string MetaTitleValue
 		{
 			get { return MetaTitle.Value; }
 		}
 	
+		#region SeoItem Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{A7CB2CD5-C4B1-46A6-B92F-4EF8185B45EC}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string MetaDescription = "Meta Description";
+			public const string MetaKeywords = "Meta Keywords";
+			public const string MetaTitle = "Meta Title";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string MetaDescription = "meta_description";
+			public const string MetaKeywords = "meta_keywords";
+			public const string MetaTitle = "meta_title";
+		}
+
+		#endregion
 	}
 }
+
 #endregion
 
 #region Navigation (UserDefined)
+
 namespace Testground.Model.Fortis.Templates.UserDefined
 {
 	using System;
@@ -486,81 +653,103 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 	/// <para>ID: {F80BAA4D-5F8B-40EA-BE43-20D649B2C92D}</para>
 	/// <para>/sitecore/templates/User Defined/Data/Navigation</para>
 	/// </summary>
-	[TemplateMapping("{F80BAA4D-5F8B-40EA-BE43-20D649B2C92D}", "InterfaceMap")]
-	public partial interface INavigation : IItemWrapper 
+	[TemplateMapping(NavigationItem.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface INavigationItem : ICustomItemWrapper 
 	{		
 		/// <summary>
 		/// <para>Template: Navigation</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para>
 		/// </summary>
-		[IndexField("hide_from_navigation")]
+		[IndexField(NavigationItem.IndexFieldNames.HideFromNavigation)]
 		IBooleanFieldWrapper HideFromNavigation { get; }
 
 		/// <summary>
 		/// <para>Template: Navigation</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para>
 		/// </summary>
-		[IndexField("hide_from_navigation")]
+		[IndexField(NavigationItem.IndexFieldNames.HideFromNavigation)]
 		bool HideFromNavigationValue { get; }
 		/// <summary>
 		/// <para>Template: Navigation</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para>
 		/// </summary>
-		[IndexField("navigation_title")]
+		[IndexField(NavigationItem.IndexFieldNames.NavigationTitle)]
 		ITextFieldWrapper NavigationTitle { get; }
 
 		/// <summary>
 		/// <para>Template: Navigation</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para>
 		/// </summary>
-		[IndexField("navigation_title")]
+		[IndexField(NavigationItem.IndexFieldNames.NavigationTitle)]
 		string NavigationTitleValue { get; }
 	}
 
 	/// <summary>
 	/// <para>Template class</para><para>/sitecore/templates/User Defined/Data/Navigation</para>
 	/// </summary>
-	[PredefinedQuery("TemplateId", ComparisonType.Equal, "{F80BAA4D-5F8B-40EA-BE43-20D649B2C92D}", typeof(Guid))]
-	[TemplateMapping("{F80BAA4D-5F8B-40EA-BE43-20D649B2C92D}", "")]
-	public partial class Navigation : ItemWrapper, INavigation
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, NavigationItem.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(NavigationItem.Constants.TemplateIdStr, "")]
+	public partial class NavigationItem : CustomItemWrapper, INavigationItem
 	{
 		private Item _item = null;
 
-		public Navigation(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+		public NavigationItem(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
 
-		public Navigation(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+		public NavigationItem(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
 
-		public Navigation(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+		public NavigationItem(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
 
-		public Navigation(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		public NavigationItem(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
 		{
 			_item = item;
 		}
 
 		/// <summary><para>Template: Navigation</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
-		[IndexField("hide_from_navigation")]
+		[IndexField(IndexFieldNames.HideFromNavigation)]
 		public virtual IBooleanFieldWrapper HideFromNavigation
 		{
-			get { return GetField<BooleanFieldWrapper>("Hide From Navigation", "hide_from_navigation"); }
+			get { return GetField<BooleanFieldWrapper>(FieldNames.HideFromNavigation, IndexFieldNames.HideFromNavigation); }
 		}
 
 		/// <summary><para>Template: Navigation</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
-		[IndexField("hide_from_navigation")]
+		[IndexField(IndexFieldNames.HideFromNavigation)]
 		public bool HideFromNavigationValue
 		{
 			get { return HideFromNavigation.Value; }
 		}
 		/// <summary><para>Template: Navigation</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("navigation_title")]
+		[IndexField(IndexFieldNames.NavigationTitle)]
 		public virtual ITextFieldWrapper NavigationTitle
 		{
-			get { return GetField<TextFieldWrapper>("Navigation Title", "navigation_title"); }
+			get { return GetField<TextFieldWrapper>(FieldNames.NavigationTitle, IndexFieldNames.NavigationTitle); }
 		}
 
 		/// <summary><para>Template: Navigation</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
-		[IndexField("navigation_title")]
+		[IndexField(IndexFieldNames.NavigationTitle)]
 		public string NavigationTitleValue
 		{
 			get { return NavigationTitle.Value; }
 		}
 	
+		#region NavigationItem Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{F80BAA4D-5F8B-40EA-BE43-20D649B2C92D}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string HideFromNavigation = "Hide From Navigation";
+			public const string NavigationTitle = "Navigation Title";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string HideFromNavigation = "hide_from_navigation";
+			public const string NavigationTitle = "navigation_title";
+		}
+
+		#endregion
 	}
 }
+
 #endregion
 

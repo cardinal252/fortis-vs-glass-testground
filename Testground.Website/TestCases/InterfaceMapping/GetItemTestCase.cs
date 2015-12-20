@@ -25,7 +25,7 @@ namespace Testground.Website.TestCases.InterfaceMapping
 
 		protected override void ExecuteFortisTest()
 		{
-			var items = this.GetFortisItems<Model.Fortis.Templates.UserDefined.INavigation>(
+			var items = this.GetFortisItems<Model.Fortis.Templates.UserDefined.INavigationItem>(
 				Const.ContentPageID, 
 				Const.ItemCount);
 		}

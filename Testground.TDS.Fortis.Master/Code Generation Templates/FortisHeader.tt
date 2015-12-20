@@ -54,3 +54,47 @@ using Sitecore.Data.Items;
 using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.Linq.Common;
 
+#region Custom Item Wrapper (Extendable base class)
+
+namespace <#=DefaultNamespace #>
+{
+	using System;
+	using System.Collections.Generic;
+	using global::Fortis.Model;
+	using global::Fortis.Providers;
+
+	/*
+		To extend base ItemWrapper class and its interface, 
+		create partial class CustomItemWrapper and interface ICustomItemWrapper
+		in your model project and add required properties or methods there.
+	*/
+	public partial interface ICustomItemWrapper : IItemWrapper
+	{
+	}
+
+	public partial class CustomItemWrapper : ItemWrapper, ICustomItemWrapper
+	{
+		public CustomItemWrapper(ISpawnProvider spawnProvider) 
+			: base(spawnProvider)
+		{
+		}
+
+		public CustomItemWrapper(Item item, ISpawnProvider spawnProvider) 
+			: base(item, spawnProvider)
+		{
+		}
+
+		public CustomItemWrapper(Guid id, ISpawnProvider spawnProvider) 
+			: base(id, spawnProvider)
+		{
+		}
+
+		public CustomItemWrapper(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) 
+			: base(id, lazyFields, spawnProvider)
+		{
+		}
+	}
+}
+
+#endregion
+

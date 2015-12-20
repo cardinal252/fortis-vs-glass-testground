@@ -13,7 +13,7 @@ namespace Testground.Website.TestCases.TypeMapping
 
 		private IEnumerable<Item> SitecoreItems;
 		private IEnumerable<INavigation> GlassItems;
-		private IEnumerable<Model.Fortis.Templates.UserDefined.INavigation> FortisItems;
+		private IEnumerable<Model.Fortis.Templates.UserDefined.INavigationItem> FortisItems;
 
 		public RenderFieldTypeTestCase(IItemFactory fortisService, ISitecoreContext glassService) 
 			: base(fortisService, glassService)
@@ -36,7 +36,7 @@ namespace Testground.Website.TestCases.TypeMapping
 				Const.ContentPageID,
 				Const.ItemCount);
 
-			this.FortisItems = this.GetFortisItems<Model.Fortis.Templates.UserDefined.INavigation>(
+			this.FortisItems = this.GetFortisItems<Model.Fortis.Templates.UserDefined.INavigationItem>(
 				Const.ContentPageID,
 				Const.ItemCount);
 		}

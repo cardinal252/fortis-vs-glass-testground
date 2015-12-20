@@ -32,53 +32,53 @@
 /// </summary>
 public class SitecoreItem
 {
-	/// <summary>
-	/// The Sitecore item ID.
-	/// </summary>
-	public Guid ID { get; set; }
+    /// <summary>
+    /// The Sitecore item ID.
+    /// </summary>
+    public Guid ID { get; set; }
+
+    /// <summary>
+    /// The name of the Sitecore item. This may be different than the Display Name.
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// The path to the item from the Sitecore root.
+    /// </summary>
+    public string Path { get; set; }
+
+    /// <summary>
+    /// Any custom data associated with the item. This data can be set on the property page associated with the Sitecore item in the solution explorer.
+    /// </summary>
+    public string Data { get; set; }
+
+    /// <summary>
+    /// The Parent SitecoreItem in the Sitecore hierarchy.
+    /// </summary>
+    public SitecoreItem Parent { get; set; }
+
+    /// <summary>
+    /// The name of the template the item is based on
+    /// </summary>
+    public string TemplateName { get; set; }
+
+    /// <summary>
+    /// The ID of the template the item is based on
+    /// </summary>
+    public Guid TemplateId { get; set; }
+
+    /// <summary>
+    /// Additional sitecore fields. These fields are set on the Code Generation Property page. 
+    /// The key in the dictionary is the Field name, the value is the value of the field.
+    /// </summary>
+    public Dictionary<string, string> SitecoreFields;
 
 	/// <summary>
-	/// The name of the Sitecore item. This may be different than the Display Name.
-	/// </summary>
-	public string Name { get; set; }
-
-	/// <summary>
-	/// The path to the item from the Sitecore root.
-	/// </summary>
-	public string Path { get; set; }
-
-	/// <summary>
-	/// Any custom data associated with the item. This data can be set on the property page associated with the Sitecore item in the solution explorer.
-	/// </summary>
-	public string Data { get; set; }
-
-	/// <summary>
-	/// The Parent SitecoreItem in the Sitecore hierarchy.
-	/// </summary>
-	public SitecoreItem Parent { get; set; }
-
-	/// <summary>
-	/// The name of the template the item is based on
-	/// </summary>
-	public string TemplateName { get; set; }
-
-	/// <summary>
-	/// The ID of the template the item is based on
-	/// </summary>
-	public Guid TemplateId { get; set; }
-
-	/// <summary>
-	/// Additional sitecore fields. These fields are set on the Code Generation Property page. 
-	/// The key in the dictionary is the Field name, the value is the value of the field.
-	/// </summary>
-	public Dictionary<string, string> SitecoreFields;
-
-	/// <summary>
-	/// The calculated Namespace for the item. Each Sitecore item above the template is represented as part of the namespace. 
-	/// A new Namespace can be set at any item in the items property page. This allows the code generation namespace to be arranged differently 
-	/// than the Sitecore template hierarchy.
-	/// </summary>
-	public string Namespace { get; set; }
+    /// The calculated Namespace for the item. Each Sitecore item above the template is represented as part of the namespace. 
+    /// A new Namespace can be set at any item in the items property page. This allows the code generation namespace to be arranged differently 
+    /// than the Sitecore template hierarchy.
+    /// </summary>
+    public string Namespace { get; set; }
 }
 
 /// <summary>
@@ -86,20 +86,20 @@ public class SitecoreItem
 /// </summary>
 public class SitecoreTemplate : SitecoreItem
 {
-	/// <summary>
-	/// The namespace broken out into individual segments.
-	/// </summary>
-	public IEnumerable<string> NamespaceSegments { get; }
+    /// <summary>
+    /// The namespace broken out into individual segments.
+    /// </summary>
+    public IEnumerable<string> NamespaceSegments { get; }
 
-	/// <summary>
-	/// A list of all templates this template inherits from.
-	/// </summary>
-	public List<SitecoreTemplate> BaseTemplates { get; set; }
+    /// <summary>
+    /// A list of all templates this template inherits from.
+    /// </summary>
+    public List<SitecoreTemplate> BaseTemplates { get; set; }
 
-	/// <summary>
-	/// A list of Sitecore Fields that make up this sitecore template.
-	/// </summary>
-	public List<SitecoreField> Fields { get; set; }
+    /// <summary>
+    /// A list of Sitecore Fields that make up this sitecore template.
+    /// </summary>
+    public List<SitecoreField> Fields { get; set; }
 }
 
 /// <summary>
@@ -107,10 +107,10 @@ public class SitecoreTemplate : SitecoreItem
 /// </summary>
 public class SitecoreField : SitecoreItem
 {
-	/// <summary>
-	/// The type of the field from the template editor.
-	/// </summary>
-	public string Type { get; set; }
+    /// <summary>
+    /// The type of the field from the template editor.
+    /// </summary>
+    public string Type { get; set; }
 }
 */			
 #>
@@ -126,11 +126,12 @@ if (template == null)
 var baseTemplates = template.BaseTemplates;
 var baseTemplatesRecursive = RecursiveBaseTemplateList(template);
 var combinedTemplateList = new List<SitecoreTemplate>(baseTemplatesRecursive);
-
 combinedTemplateList.Add(template);
+var combinedFieldList = GetCombinedFieldList(combinedTemplateList);
 
 #>
 #region <#= template.Name #> (<#= RelativeNamespace(template) #>)
+
 namespace <#= FullNamespace(template) #>
 {
 	using System;
@@ -156,7 +157,7 @@ namespace <#= FullNamespace(template) #>
 	/// <para>ID: <#= template.ID.ToString("b").ToUpper() #></para>
 	/// <para><#= template.Path #></para>
 	/// </summary>
-	[TemplateMapping("<#= template.ID.ToString("b").ToUpper() #>", "<#= GetTemplateMappingType(isRenderingParametersTemplate, true) #>")]
+	[TemplateMapping(<#=GetTemplateIdConstant(template)#>, "<#= GetTemplateMappingType(isRenderingParametersTemplate, true) #>")]
 	public partial interface <#= InterfaceItemName(template.Name) #> : <#= GetBaseTemplateInterface(isRenderingParametersTemplate) #> <#
 	foreach (var baseTemplate in baseTemplates)
 	{
@@ -176,7 +177,7 @@ namespace <#= FullNamespace(template) #>
 		/// <para>Template: <#= template.Name #></para><para>Field: <#= TitleCase(field.Name) #></para><para>Data type: <#= field.Type #></para>
 		/// </summary>
 <# if (!isRenderingParametersTemplate && IsSupportedSearchFieldType(field.Type)) { #>
-		[IndexField("<#= field.Name.Replace(" ", "_").ToLowerInvariant() + GetFieldTypeSearchAffix(field.Type) #>")]
+		[IndexField(<#= GetIndexFieldNameConstant(template, field) #>)]
 <# } #>
 		<#= GetFieldWrapperTypeInterface(field.Type) #> <#= TitleCase(field.Name) #> { get; }
 <# if (!isRenderingParametersTemplate && IsSupportedSearchFieldType(field.Type)) { #>
@@ -184,7 +185,7 @@ namespace <#= FullNamespace(template) #>
 		/// <summary>
 		/// <para>Template: <#= template.Name #></para><para>Field: <#= TitleCase(field.Name) #></para><para>Data type: <#= field.Type #></para>
 		/// </summary>
-		[IndexField("<#= field.Name.Replace(" ", "_").ToLowerInvariant() #>")]
+		[IndexField(<#= GetIndexFieldNameConstant(template, field) #>)]
 <# } #>
 		<#= GetReturnType(GetFieldWrapperType(field.Type)) #> <#= TitleCase(field.Name) #>Value { get; }
 <#
@@ -195,8 +196,8 @@ namespace <#= FullNamespace(template) #>
 	/// <summary>
 	/// <para>Template class</para><para><#= template.Path #></para>
 	/// </summary>
-	[PredefinedQuery("TemplateId", ComparisonType.Equal, "<#= template.ID.ToString("b").ToUpper() #>", typeof(Guid))]
-	[TemplateMapping("<#= template.ID.ToString("b").ToUpper() #>", "<#= GetTemplateMappingType(isRenderingParametersTemplate, false) #>")]
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, <#=GetTemplateIdConstant(template)#>, typeof(Guid))]
+	[TemplateMapping(<#=GetTemplateIdConstant(template)#>, "<#= GetTemplateMappingType(isRenderingParametersTemplate, false) #>")]
 	public partial class <#= ClassItemName(template.Name) #> : <#= GetBaseTemplateClass(isRenderingParametersTemplate) #>, <#= InterfaceItemName(template.Name) #>
 	{
 <# if (!isRenderingParametersTemplate) { #>
@@ -216,39 +217,57 @@ namespace <#= FullNamespace(template) #>
 <# } #>
 		}
 
-<#
-	foreach(var fieldTemplate in combinedTemplateList)
+<#	foreach(var field in combinedFieldList)
 	{
-		foreach(var field in fieldTemplate.Fields)
-		{
 #>
 		/// <summary><para>Template: <#= template.Name #></para><para>Field: <#= TitleCase(field.Name) #></para><para>Data type: <#= field.Type #></para></summary>
 <# if (!isRenderingParametersTemplate && IsSupportedSearchFieldType(field.Type)) { #>
-		[IndexField("<#= field.Name.Replace(" ", "_").ToLowerInvariant() + GetFieldTypeSearchAffix(field.Type) #>")]
+		[IndexField(<#= GetIndexFieldNameConstant(field) #>)]
 <# } #>
 		public virtual <#= GetFieldWrapperTypeInterface(field.Type) #> <#= TitleCase(field.Name) #>
 		{
 <# if (isRenderingParametersTemplate) { #>
 			get { return (Fortis.Model.RenderingParameters.Fields.<#= GetFieldWrapperType(field.Type) #>)GetField("<#= field.Name #>", "<#= field.Type.ToLower() #>"); }
 <# } else { #>
-			get { return GetField<<#= GetFieldWrapperType(field.Type) #>>("<#= field.Name #>"<# if (IsSupportedSearchFieldType(field.Type)) { #>, "<#= field.Name.Replace(" ", "_").ToLowerInvariant() + GetFieldTypeSearchAffix(field.Type) #>"<# } #>); }
+			get { return GetField<<#= GetFieldWrapperType(field.Type) #>>(<#=GetFieldNameConstant(field)#><# if (IsSupportedSearchFieldType(field.Type)) { #>, <#= GetIndexFieldNameConstant(field) #><# } #>); }
 <# } #>
 		}
 
 		/// <summary><para>Template: <#= template.Name #></para><para>Field: <#= TitleCase(field.Name) #></para><para>Data type: <#= field.Type #></para></summary>
 <# if (!isRenderingParametersTemplate && IsSupportedSearchFieldType(field.Type)) { #>
-		[IndexField("<#= field.Name.Replace(" ", "_").ToLowerInvariant() #>")]
+		[IndexField(<#= GetIndexFieldNameConstant(field) #>)]
 <# } #>
 		public <#= GetReturnType(GetFieldWrapperType(field.Type)) #> <#= TitleCase(field.Name) #>Value
 		{
 			get { return <#= TitleCase(field.Name) #>.Value; }
 		}
 <#
-		}
 	}
 #>	
+		#region <#= ClassItemName(template.Name) #> Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "<#= template.ID.ToString("b").ToUpper() #>";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+<#foreach(var field in combinedFieldList) { #>
+			public const string <#= TitleCase(field.Name) #> = "<#= field.Name #>";
+<#}#>		}
+
+		public static class IndexFieldNames
+		{
+<#foreach(var field in combinedFieldList) { #>
+			public const string <#= TitleCase(field.Name) #> = "<#= field.Name.Replace(" ", "_").ToLowerInvariant() + GetFieldTypeSearchAffix(field.Type) #>";
+<#}#>		}
+
+		#endregion
 	}
 }
+
 #endregion
 
 <#+
@@ -262,7 +281,7 @@ public string GetBaseTemplateInterface(bool isRenderingParametersTemplate)
 
 public string GetBaseTemplateClass(bool isRenderingParametersTemplate)
 {
-	return isRenderingParametersTemplate ? "RenderingParameterWrapper" : "ItemWrapper";
+	return isRenderingParametersTemplate ? "RenderingParameterWrapper" : "CustomItemWrapper";
 }
 
 public string GetConstructorParameters(bool isRenderingParametersTemplate)
@@ -278,6 +297,31 @@ public string GetBaseConstructorParameters(bool isRenderingParametersTemplate)
 public string GetTemplateMappingType(bool isRenderingParametersTemplate, bool isInterface)
 {
 	return (isInterface ? "Interface" : string.Empty) + (isRenderingParametersTemplate ? "RenderingParameter" : isInterface ? "Map" : string.Empty);
+}
+
+public string GetTemplateIdConstant(SitecoreTemplate template)
+{
+	return ClassItemName(template.Name) + ".Constants.TemplateIdStr";
+}
+
+public string GetFieldNameConstant(SitecoreField field)
+{
+	return "FieldNames." + TitleCase(field.Name);
+}
+
+public string GetFieldNameConstant(SitecoreTemplate template, SitecoreField field)
+{
+	return ClassItemName(template.Name) + "." + GetFieldNameConstant(field);
+}
+
+public string GetIndexFieldNameConstant(SitecoreField field)
+{
+	return "IndexFieldNames." + TitleCase(field.Name);
+}
+
+public string GetIndexFieldNameConstant(SitecoreTemplate template, SitecoreField field)
+{
+	return ClassItemName(template.Name) + "." + GetIndexFieldNameConstant(field);
 }
 
 public string GetReturnType(string fieldType)
@@ -407,7 +451,7 @@ public string GetFieldWrapperType(string typeName)
 
 public string ClassItemName(string name)
 {
-	return ClassName(name);
+	return ClassName(name) + "Item";
 }
 
 public string ClassName(string name)
@@ -417,7 +461,7 @@ public string ClassName(string name)
 
 public string InterfaceItemName(string name)
 {
-	return InterfaceName(name);
+	return InterfaceName(name) + "Item";
 }
 
 public string InterfaceName(string name)
@@ -503,6 +547,24 @@ public string RelativeNamespace(SitecoreTemplate template)
 public string FullNamespace(SitecoreTemplate template)
 {
 	return DefaultNamespace + ".Templates." + RelativeNamespace(template);
+}
+
+public ICollection<SitecoreField> GetCombinedFieldList(IEnumerable<SitecoreTemplate> templates)
+{
+	var fields = new Dictionary<string, SitecoreField>();
+
+	foreach (var template in templates)
+	{
+		foreach(var field in template.Fields)
+		{
+			if (!fields.ContainsKey(field.Name))
+			{
+				fields.Add(field.Name, field);
+			}
+		}
+	}
+
+	return fields.Values;
 }
 
 public IEnumerable<SitecoreTemplate> RecursiveBaseTemplateList(SitecoreTemplate template)
