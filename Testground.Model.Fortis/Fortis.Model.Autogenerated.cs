@@ -12,8 +12,9 @@ namespace Testground.Model.Fortis
 	using global::Fortis.Providers;
 
 	/*
-		To extend base ItemWrapper class and its interface, create partial class CustomItemWrapper 
-		in your model project and add required properties or methods to there.
+		To extend base ItemWrapper class and its interface, 
+		create partial class CustomItemWrapper and interface ICustomItemWrapper
+		in your model project and add required properties or methods there.
 	*/
 	public partial interface ICustomItemWrapper : IItemWrapper
 	{
