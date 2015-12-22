@@ -21,6 +21,7 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -166,9 +167,16 @@
     <Compile Include="App_Start\GlassMapperSc.cs" />
     <Compile Include="App_Start\GlassMapperScCustom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCases\Fields\ThreeFieldsTestCase.cs" />
+    <Compile Include="TestCases\Fields\CheckboxFieldTestCase.cs" />
+    <Compile Include="TestCases\Fields\RichTextFieldTestCase.cs" />
+    <Compile Include="TestCases\Fields\SingleLineTextFieldTestCase.cs" />
     <Compile Include="TestCases\InterfaceMapping\ExposeFromItemTestCase.cs" />
     <Compile Include="TestCases\InterfaceMapping\GetChildrenTestCase.cs" />
     <Compile Include="TestCases\InterfaceMapping\GetItemTestCase.cs" />
+    <Compile Include="TestCases\IsolationMapping\GetChildrenIsolationTestCase.cs" />
+    <Compile Include="TestCases\IsolationMapping\GetItemIsolationTestCase.cs" />
+    <Compile Include="TestCases\IsolationMapping\ReadFieldValueIsolationTestCase.cs" />
     <Compile Include="TestCases\ITestCaseResult.cs" />
     <Compile Include="TestCases\TestCase.cs" />
     <Compile Include="TestCases\ITestCase.cs" />
@@ -180,6 +188,7 @@
     <Compile Include="TestCases\TypeMapping\GetItemTestCase.cs" />
     <Compile Include="TestCases\TypeMapping\ReadFieldValueTestCase.cs" />
     <Compile Include="TestCases\TypeMapping\RenderFieldTestCase.cs" />
+    <Compile Include="TestCases\IsolationMapping\GetItemPathIsolationTestCase.cs" />
     <Compile Include="TestRunner.aspx.cs">
       <DependentUpon>TestRunner.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

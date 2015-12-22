@@ -7,7 +7,9 @@ using Fortis.Providers;
 using Glass.Mapper.Sc;
 using Sitecore.Data;
 using Testground.Website.TestCases;
+using Testground.Website.TestCases.Fields;
 using Testground.Website.TestCases.InterfaceMapping;
+using Testground.Website.TestCases.IsolationMapping;
 using Testground.Website.TestCases.TypeMapping;
 
 namespace Testground.Website
@@ -16,6 +18,8 @@ namespace Testground.Website
 	{
 		private IEnumerable<ITestCase> InterfaceTestCases;
 		private IEnumerable<ITestCase> TypeTestCases;
+		private IEnumerable<ITestCase> IsolationCases;
+		private IEnumerable<ITestCase> FieldCases;
 
 		protected IEnumerable<ITestCaseResult> InterfaceTestResults
 		{
@@ -27,7 +31,16 @@ namespace Testground.Website
 			get { return this.TypeTestCases; }
 		}
 
-		protected override void OnLoad(EventArgs e)
+        protected IEnumerable<ITestCaseResult> IsolationResults
+        {
+            get { return this.IsolationCases; }
+        }
+        protected IEnumerable<ITestCaseResult> FieldResults
+        {
+            get { return this.FieldCases; }
+        }
+
+        protected override void OnLoad(EventArgs e)
 		{
 			base.OnLoad(e);
 
@@ -57,7 +70,24 @@ namespace Testground.Website
 				new ExposeFromItemTypeTestCase(itemFactory, sitecoreContext, spawnProvider), 
 			};
 
-			foreach (var test in this.InterfaceTestCases)
+            this.IsolationCases = new List<ITestCase>
+            {
+                new GetItemIsolationTestCase(itemFactory,sitecoreContext),
+                new GetItemPathIsolationTestCase(itemFactory,sitecoreContext),
+                new GetChildrenIsolationTestCase(itemFactory,sitecoreContext),
+                new ReadFieldValueIsolationTestCase(itemFactory,sitecoreContext)
+            };
+
+            this.FieldCases = new List<ITestCase>
+            {
+                new SingleLineTextFieldTestCase(itemFactory,sitecoreContext),
+                new RichTextFieldTestCase(itemFactory,sitecoreContext),
+                new CheckboxFieldTestCase(itemFactory, sitecoreContext),
+                new ThreeFieldsTestCase(itemFactory, sitecoreContext)
+
+            };
+
+            foreach (var test in this.InterfaceTestCases)
 			{
 				test.Execute();
 			}
@@ -66,6 +96,16 @@ namespace Testground.Website
 			{
 				test.Execute();
 			}
-		}
+
+
+            foreach (var test in this.IsolationCases)
+            {
+                test.Execute();
+            }
+            foreach (var test in this.FieldCases)
+            {
+                test.Execute();
+            }
+        }
 	}
 }

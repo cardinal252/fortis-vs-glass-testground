@@ -46,6 +46,371 @@ namespace Testground.Model.Fortis
 
 #endregion
 
+
+#region FakeFortis1 (UserDefined)
+
+namespace Testground.Model.Fortis.Templates.UserDefined
+{
+	using System;
+	using System.Collections.Generic;
+	using global::Fortis.Model;
+	using global::Fortis.Model.Fields;
+	using global::Fortis.Providers;
+
+
+	/// <summary>
+	/// <para>Template interface</para>
+	/// <para>Template: FakeFortis1</para>
+	/// <para>ID: {05960472-6B77-49F0-AE2E-3C1525A61FD7}</para>
+	/// <para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis1</para>
+	/// </summary>
+	[TemplateMapping(FakeFortis1Item.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface IFakeFortis1Item : ICustomItemWrapper , Testground.Model.Fortis.Templates.UserDefined.IContentPageItem
+	{		
+	}
+
+	/// <summary>
+	/// <para>Template class</para><para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis1</para>
+	/// </summary>
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, FakeFortis1Item.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(FakeFortis1Item.Constants.TemplateIdStr, "")]
+	public partial class FakeFortis1Item : CustomItemWrapper, IFakeFortis1Item
+	{
+		private Item _item = null;
+
+		public FakeFortis1Item(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+
+		public FakeFortis1Item(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+
+		public FakeFortis1Item(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+
+		public FakeFortis1Item(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		{
+			_item = item;
+		}
+
+		/// <summary><para>Template: FakeFortis1</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public virtual IBooleanFieldWrapper HideFromNavigation
+		{
+			get { return GetField<BooleanFieldWrapper>(FieldNames.HideFromNavigation, IndexFieldNames.HideFromNavigation); }
+		}
+
+		/// <summary><para>Template: FakeFortis1</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public bool HideFromNavigationValue
+		{
+			get { return HideFromNavigation.Value; }
+		}
+		/// <summary><para>Template: FakeFortis1</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public virtual ITextFieldWrapper NavigationTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.NavigationTitle, IndexFieldNames.NavigationTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis1</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public string NavigationTitleValue
+		{
+			get { return NavigationTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis1</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public virtual ITextFieldWrapper ContentTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.ContentTitle, IndexFieldNames.ContentTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis1</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public string ContentTitleValue
+		{
+			get { return ContentTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis1</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public virtual IRichTextFieldWrapper ContentBody
+		{
+			get { return GetField<RichTextFieldWrapper>(FieldNames.ContentBody, IndexFieldNames.ContentBody); }
+		}
+
+		/// <summary><para>Template: FakeFortis1</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public string ContentBodyValue
+		{
+			get { return ContentBody.Value; }
+		}
+		/// <summary><para>Template: FakeFortis1</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public virtual IImageFieldWrapper ContentImage
+		{
+			get { return GetField<ImageFieldWrapper>(FieldNames.ContentImage); }
+		}
+
+		/// <summary><para>Template: FakeFortis1</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public string ContentImageValue
+		{
+			get { return ContentImage.Value; }
+		}
+		/// <summary><para>Template: FakeFortis1</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public virtual ITextFieldWrapper MetaDescription
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaDescription, IndexFieldNames.MetaDescription); }
+		}
+
+		/// <summary><para>Template: FakeFortis1</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public string MetaDescriptionValue
+		{
+			get { return MetaDescription.Value; }
+		}
+		/// <summary><para>Template: FakeFortis1</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public virtual ITextFieldWrapper MetaKeywords
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaKeywords, IndexFieldNames.MetaKeywords); }
+		}
+
+		/// <summary><para>Template: FakeFortis1</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public string MetaKeywordsValue
+		{
+			get { return MetaKeywords.Value; }
+		}
+		/// <summary><para>Template: FakeFortis1</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public virtual ITextFieldWrapper MetaTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaTitle, IndexFieldNames.MetaTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis1</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public string MetaTitleValue
+		{
+			get { return MetaTitle.Value; }
+		}
+	
+		#region FakeFortis1Item Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{05960472-6B77-49F0-AE2E-3C1525A61FD7}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string HideFromNavigation = "Hide From Navigation";
+			public const string NavigationTitle = "Navigation Title";
+			public const string ContentTitle = "Content Title";
+			public const string ContentBody = "Content Body";
+			public const string ContentImage = "Content Image";
+			public const string MetaDescription = "Meta Description";
+			public const string MetaKeywords = "Meta Keywords";
+			public const string MetaTitle = "Meta Title";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string HideFromNavigation = "hide_from_navigation";
+			public const string NavigationTitle = "navigation_title";
+			public const string ContentTitle = "content_title";
+			public const string ContentBody = "content_body";
+			public const string ContentImage = "content_image";
+			public const string MetaDescription = "meta_description";
+			public const string MetaKeywords = "meta_keywords";
+			public const string MetaTitle = "meta_title";
+		}
+
+		#endregion
+	}
+}
+
+#endregion
+#region FakeFortis6 (UserDefined)
+
+namespace Testground.Model.Fortis.Templates.UserDefined
+{
+	using System;
+	using System.Collections.Generic;
+	using global::Fortis.Model;
+	using global::Fortis.Model.Fields;
+	using global::Fortis.Providers;
+
+
+	/// <summary>
+	/// <para>Template interface</para>
+	/// <para>Template: FakeFortis6</para>
+	/// <para>ID: {162BD956-AF0C-4C19-AC0C-B495E202C7E4}</para>
+	/// <para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis6</para>
+	/// </summary>
+	[TemplateMapping(FakeFortis6Item.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface IFakeFortis6Item : ICustomItemWrapper , Testground.Model.Fortis.Templates.UserDefined.IContentPageItem
+	{		
+	}
+
+	/// <summary>
+	/// <para>Template class</para><para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis6</para>
+	/// </summary>
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, FakeFortis6Item.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(FakeFortis6Item.Constants.TemplateIdStr, "")]
+	public partial class FakeFortis6Item : CustomItemWrapper, IFakeFortis6Item
+	{
+		private Item _item = null;
+
+		public FakeFortis6Item(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+
+		public FakeFortis6Item(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+
+		public FakeFortis6Item(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+
+		public FakeFortis6Item(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		{
+			_item = item;
+		}
+
+		/// <summary><para>Template: FakeFortis6</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public virtual IBooleanFieldWrapper HideFromNavigation
+		{
+			get { return GetField<BooleanFieldWrapper>(FieldNames.HideFromNavigation, IndexFieldNames.HideFromNavigation); }
+		}
+
+		/// <summary><para>Template: FakeFortis6</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public bool HideFromNavigationValue
+		{
+			get { return HideFromNavigation.Value; }
+		}
+		/// <summary><para>Template: FakeFortis6</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public virtual ITextFieldWrapper NavigationTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.NavigationTitle, IndexFieldNames.NavigationTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis6</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public string NavigationTitleValue
+		{
+			get { return NavigationTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis6</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public virtual ITextFieldWrapper ContentTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.ContentTitle, IndexFieldNames.ContentTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis6</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public string ContentTitleValue
+		{
+			get { return ContentTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis6</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public virtual IRichTextFieldWrapper ContentBody
+		{
+			get { return GetField<RichTextFieldWrapper>(FieldNames.ContentBody, IndexFieldNames.ContentBody); }
+		}
+
+		/// <summary><para>Template: FakeFortis6</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public string ContentBodyValue
+		{
+			get { return ContentBody.Value; }
+		}
+		/// <summary><para>Template: FakeFortis6</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public virtual IImageFieldWrapper ContentImage
+		{
+			get { return GetField<ImageFieldWrapper>(FieldNames.ContentImage); }
+		}
+
+		/// <summary><para>Template: FakeFortis6</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public string ContentImageValue
+		{
+			get { return ContentImage.Value; }
+		}
+		/// <summary><para>Template: FakeFortis6</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public virtual ITextFieldWrapper MetaDescription
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaDescription, IndexFieldNames.MetaDescription); }
+		}
+
+		/// <summary><para>Template: FakeFortis6</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public string MetaDescriptionValue
+		{
+			get { return MetaDescription.Value; }
+		}
+		/// <summary><para>Template: FakeFortis6</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public virtual ITextFieldWrapper MetaKeywords
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaKeywords, IndexFieldNames.MetaKeywords); }
+		}
+
+		/// <summary><para>Template: FakeFortis6</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public string MetaKeywordsValue
+		{
+			get { return MetaKeywords.Value; }
+		}
+		/// <summary><para>Template: FakeFortis6</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public virtual ITextFieldWrapper MetaTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaTitle, IndexFieldNames.MetaTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis6</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public string MetaTitleValue
+		{
+			get { return MetaTitle.Value; }
+		}
+	
+		#region FakeFortis6Item Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{162BD956-AF0C-4C19-AC0C-B495E202C7E4}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string HideFromNavigation = "Hide From Navigation";
+			public const string NavigationTitle = "Navigation Title";
+			public const string ContentTitle = "Content Title";
+			public const string ContentBody = "Content Body";
+			public const string ContentImage = "Content Image";
+			public const string MetaDescription = "Meta Description";
+			public const string MetaKeywords = "Meta Keywords";
+			public const string MetaTitle = "Meta Title";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string HideFromNavigation = "hide_from_navigation";
+			public const string NavigationTitle = "navigation_title";
+			public const string ContentTitle = "content_title";
+			public const string ContentBody = "content_body";
+			public const string ContentImage = "content_image";
+			public const string MetaDescription = "meta_description";
+			public const string MetaKeywords = "meta_keywords";
+			public const string MetaTitle = "meta_title";
+		}
+
+		#endregion
+	}
+}
+
+#endregion
 #region Title Field (UserDefined)
 
 namespace Testground.Model.Fortis.Templates.UserDefined
@@ -136,7 +501,6 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 }
 
 #endregion
-
 #region Body Field (UserDefined)
 
 namespace Testground.Model.Fortis.Templates.UserDefined
@@ -227,7 +591,188 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 }
 
 #endregion
+#region FakeFortis4 (UserDefined)
 
+namespace Testground.Model.Fortis.Templates.UserDefined
+{
+	using System;
+	using System.Collections.Generic;
+	using global::Fortis.Model;
+	using global::Fortis.Model.Fields;
+	using global::Fortis.Providers;
+
+
+	/// <summary>
+	/// <para>Template interface</para>
+	/// <para>Template: FakeFortis4</para>
+	/// <para>ID: {4EE6BCD3-EBE3-4DC5-811C-0A6C2161B69B}</para>
+	/// <para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis4</para>
+	/// </summary>
+	[TemplateMapping(FakeFortis4Item.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface IFakeFortis4Item : ICustomItemWrapper , Testground.Model.Fortis.Templates.UserDefined.IContentPageItem
+	{		
+	}
+
+	/// <summary>
+	/// <para>Template class</para><para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis4</para>
+	/// </summary>
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, FakeFortis4Item.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(FakeFortis4Item.Constants.TemplateIdStr, "")]
+	public partial class FakeFortis4Item : CustomItemWrapper, IFakeFortis4Item
+	{
+		private Item _item = null;
+
+		public FakeFortis4Item(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+
+		public FakeFortis4Item(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+
+		public FakeFortis4Item(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+
+		public FakeFortis4Item(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		{
+			_item = item;
+		}
+
+		/// <summary><para>Template: FakeFortis4</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public virtual IBooleanFieldWrapper HideFromNavigation
+		{
+			get { return GetField<BooleanFieldWrapper>(FieldNames.HideFromNavigation, IndexFieldNames.HideFromNavigation); }
+		}
+
+		/// <summary><para>Template: FakeFortis4</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public bool HideFromNavigationValue
+		{
+			get { return HideFromNavigation.Value; }
+		}
+		/// <summary><para>Template: FakeFortis4</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public virtual ITextFieldWrapper NavigationTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.NavigationTitle, IndexFieldNames.NavigationTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis4</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public string NavigationTitleValue
+		{
+			get { return NavigationTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis4</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public virtual ITextFieldWrapper ContentTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.ContentTitle, IndexFieldNames.ContentTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis4</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public string ContentTitleValue
+		{
+			get { return ContentTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis4</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public virtual IRichTextFieldWrapper ContentBody
+		{
+			get { return GetField<RichTextFieldWrapper>(FieldNames.ContentBody, IndexFieldNames.ContentBody); }
+		}
+
+		/// <summary><para>Template: FakeFortis4</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public string ContentBodyValue
+		{
+			get { return ContentBody.Value; }
+		}
+		/// <summary><para>Template: FakeFortis4</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public virtual IImageFieldWrapper ContentImage
+		{
+			get { return GetField<ImageFieldWrapper>(FieldNames.ContentImage); }
+		}
+
+		/// <summary><para>Template: FakeFortis4</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public string ContentImageValue
+		{
+			get { return ContentImage.Value; }
+		}
+		/// <summary><para>Template: FakeFortis4</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public virtual ITextFieldWrapper MetaDescription
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaDescription, IndexFieldNames.MetaDescription); }
+		}
+
+		/// <summary><para>Template: FakeFortis4</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public string MetaDescriptionValue
+		{
+			get { return MetaDescription.Value; }
+		}
+		/// <summary><para>Template: FakeFortis4</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public virtual ITextFieldWrapper MetaKeywords
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaKeywords, IndexFieldNames.MetaKeywords); }
+		}
+
+		/// <summary><para>Template: FakeFortis4</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public string MetaKeywordsValue
+		{
+			get { return MetaKeywords.Value; }
+		}
+		/// <summary><para>Template: FakeFortis4</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public virtual ITextFieldWrapper MetaTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaTitle, IndexFieldNames.MetaTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis4</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public string MetaTitleValue
+		{
+			get { return MetaTitle.Value; }
+		}
+	
+		#region FakeFortis4Item Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{4EE6BCD3-EBE3-4DC5-811C-0A6C2161B69B}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string HideFromNavigation = "Hide From Navigation";
+			public const string NavigationTitle = "Navigation Title";
+			public const string ContentTitle = "Content Title";
+			public const string ContentBody = "Content Body";
+			public const string ContentImage = "Content Image";
+			public const string MetaDescription = "Meta Description";
+			public const string MetaKeywords = "Meta Keywords";
+			public const string MetaTitle = "Meta Title";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string HideFromNavigation = "hide_from_navigation";
+			public const string NavigationTitle = "navigation_title";
+			public const string ContentTitle = "content_title";
+			public const string ContentBody = "content_body";
+			public const string ContentImage = "content_image";
+			public const string MetaDescription = "meta_description";
+			public const string MetaKeywords = "meta_keywords";
+			public const string MetaTitle = "meta_title";
+		}
+
+		#endregion
+	}
+}
+
+#endregion
 #region Image Field (UserDefined)
 
 namespace Testground.Model.Fortis.Templates.UserDefined
@@ -310,7 +855,6 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 }
 
 #endregion
-
 #region Content Page (UserDefined)
 
 namespace Testground.Model.Fortis.Templates.UserDefined
@@ -493,7 +1037,188 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 }
 
 #endregion
+#region FakeFortis2 (UserDefined)
 
+namespace Testground.Model.Fortis.Templates.UserDefined
+{
+	using System;
+	using System.Collections.Generic;
+	using global::Fortis.Model;
+	using global::Fortis.Model.Fields;
+	using global::Fortis.Providers;
+
+
+	/// <summary>
+	/// <para>Template interface</para>
+	/// <para>Template: FakeFortis2</para>
+	/// <para>ID: {90D0BF78-871A-4D46-BAA0-D5CE0B97C4C1}</para>
+	/// <para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis2</para>
+	/// </summary>
+	[TemplateMapping(FakeFortis2Item.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface IFakeFortis2Item : ICustomItemWrapper , Testground.Model.Fortis.Templates.UserDefined.IContentPageItem
+	{		
+	}
+
+	/// <summary>
+	/// <para>Template class</para><para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis2</para>
+	/// </summary>
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, FakeFortis2Item.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(FakeFortis2Item.Constants.TemplateIdStr, "")]
+	public partial class FakeFortis2Item : CustomItemWrapper, IFakeFortis2Item
+	{
+		private Item _item = null;
+
+		public FakeFortis2Item(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+
+		public FakeFortis2Item(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+
+		public FakeFortis2Item(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+
+		public FakeFortis2Item(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		{
+			_item = item;
+		}
+
+		/// <summary><para>Template: FakeFortis2</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public virtual IBooleanFieldWrapper HideFromNavigation
+		{
+			get { return GetField<BooleanFieldWrapper>(FieldNames.HideFromNavigation, IndexFieldNames.HideFromNavigation); }
+		}
+
+		/// <summary><para>Template: FakeFortis2</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public bool HideFromNavigationValue
+		{
+			get { return HideFromNavigation.Value; }
+		}
+		/// <summary><para>Template: FakeFortis2</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public virtual ITextFieldWrapper NavigationTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.NavigationTitle, IndexFieldNames.NavigationTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis2</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public string NavigationTitleValue
+		{
+			get { return NavigationTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis2</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public virtual ITextFieldWrapper ContentTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.ContentTitle, IndexFieldNames.ContentTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis2</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public string ContentTitleValue
+		{
+			get { return ContentTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis2</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public virtual IRichTextFieldWrapper ContentBody
+		{
+			get { return GetField<RichTextFieldWrapper>(FieldNames.ContentBody, IndexFieldNames.ContentBody); }
+		}
+
+		/// <summary><para>Template: FakeFortis2</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public string ContentBodyValue
+		{
+			get { return ContentBody.Value; }
+		}
+		/// <summary><para>Template: FakeFortis2</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public virtual IImageFieldWrapper ContentImage
+		{
+			get { return GetField<ImageFieldWrapper>(FieldNames.ContentImage); }
+		}
+
+		/// <summary><para>Template: FakeFortis2</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public string ContentImageValue
+		{
+			get { return ContentImage.Value; }
+		}
+		/// <summary><para>Template: FakeFortis2</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public virtual ITextFieldWrapper MetaDescription
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaDescription, IndexFieldNames.MetaDescription); }
+		}
+
+		/// <summary><para>Template: FakeFortis2</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public string MetaDescriptionValue
+		{
+			get { return MetaDescription.Value; }
+		}
+		/// <summary><para>Template: FakeFortis2</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public virtual ITextFieldWrapper MetaKeywords
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaKeywords, IndexFieldNames.MetaKeywords); }
+		}
+
+		/// <summary><para>Template: FakeFortis2</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public string MetaKeywordsValue
+		{
+			get { return MetaKeywords.Value; }
+		}
+		/// <summary><para>Template: FakeFortis2</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public virtual ITextFieldWrapper MetaTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaTitle, IndexFieldNames.MetaTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis2</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public string MetaTitleValue
+		{
+			get { return MetaTitle.Value; }
+		}
+	
+		#region FakeFortis2Item Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{90D0BF78-871A-4D46-BAA0-D5CE0B97C4C1}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string HideFromNavigation = "Hide From Navigation";
+			public const string NavigationTitle = "Navigation Title";
+			public const string ContentTitle = "Content Title";
+			public const string ContentBody = "Content Body";
+			public const string ContentImage = "Content Image";
+			public const string MetaDescription = "Meta Description";
+			public const string MetaKeywords = "Meta Keywords";
+			public const string MetaTitle = "Meta Title";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string HideFromNavigation = "hide_from_navigation";
+			public const string NavigationTitle = "navigation_title";
+			public const string ContentTitle = "content_title";
+			public const string ContentBody = "content_body";
+			public const string ContentImage = "content_image";
+			public const string MetaDescription = "meta_description";
+			public const string MetaKeywords = "meta_keywords";
+			public const string MetaTitle = "meta_title";
+		}
+
+		#endregion
+	}
+}
+
+#endregion
 #region Seo (UserDefined)
 
 namespace Testground.Model.Fortis.Templates.UserDefined
@@ -636,7 +1361,552 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 }
 
 #endregion
+#region FakeFortis5 (UserDefined)
 
+namespace Testground.Model.Fortis.Templates.UserDefined
+{
+	using System;
+	using System.Collections.Generic;
+	using global::Fortis.Model;
+	using global::Fortis.Model.Fields;
+	using global::Fortis.Providers;
+
+
+	/// <summary>
+	/// <para>Template interface</para>
+	/// <para>Template: FakeFortis5</para>
+	/// <para>ID: {CC8C7F69-EC8A-4A56-98A7-2972AC9A87A0}</para>
+	/// <para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis5</para>
+	/// </summary>
+	[TemplateMapping(FakeFortis5Item.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface IFakeFortis5Item : ICustomItemWrapper , Testground.Model.Fortis.Templates.UserDefined.IContentPageItem
+	{		
+	}
+
+	/// <summary>
+	/// <para>Template class</para><para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis5</para>
+	/// </summary>
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, FakeFortis5Item.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(FakeFortis5Item.Constants.TemplateIdStr, "")]
+	public partial class FakeFortis5Item : CustomItemWrapper, IFakeFortis5Item
+	{
+		private Item _item = null;
+
+		public FakeFortis5Item(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+
+		public FakeFortis5Item(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+
+		public FakeFortis5Item(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+
+		public FakeFortis5Item(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		{
+			_item = item;
+		}
+
+		/// <summary><para>Template: FakeFortis5</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public virtual IBooleanFieldWrapper HideFromNavigation
+		{
+			get { return GetField<BooleanFieldWrapper>(FieldNames.HideFromNavigation, IndexFieldNames.HideFromNavigation); }
+		}
+
+		/// <summary><para>Template: FakeFortis5</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public bool HideFromNavigationValue
+		{
+			get { return HideFromNavigation.Value; }
+		}
+		/// <summary><para>Template: FakeFortis5</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public virtual ITextFieldWrapper NavigationTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.NavigationTitle, IndexFieldNames.NavigationTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis5</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public string NavigationTitleValue
+		{
+			get { return NavigationTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis5</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public virtual ITextFieldWrapper ContentTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.ContentTitle, IndexFieldNames.ContentTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis5</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public string ContentTitleValue
+		{
+			get { return ContentTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis5</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public virtual IRichTextFieldWrapper ContentBody
+		{
+			get { return GetField<RichTextFieldWrapper>(FieldNames.ContentBody, IndexFieldNames.ContentBody); }
+		}
+
+		/// <summary><para>Template: FakeFortis5</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public string ContentBodyValue
+		{
+			get { return ContentBody.Value; }
+		}
+		/// <summary><para>Template: FakeFortis5</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public virtual IImageFieldWrapper ContentImage
+		{
+			get { return GetField<ImageFieldWrapper>(FieldNames.ContentImage); }
+		}
+
+		/// <summary><para>Template: FakeFortis5</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public string ContentImageValue
+		{
+			get { return ContentImage.Value; }
+		}
+		/// <summary><para>Template: FakeFortis5</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public virtual ITextFieldWrapper MetaDescription
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaDescription, IndexFieldNames.MetaDescription); }
+		}
+
+		/// <summary><para>Template: FakeFortis5</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public string MetaDescriptionValue
+		{
+			get { return MetaDescription.Value; }
+		}
+		/// <summary><para>Template: FakeFortis5</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public virtual ITextFieldWrapper MetaKeywords
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaKeywords, IndexFieldNames.MetaKeywords); }
+		}
+
+		/// <summary><para>Template: FakeFortis5</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public string MetaKeywordsValue
+		{
+			get { return MetaKeywords.Value; }
+		}
+		/// <summary><para>Template: FakeFortis5</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public virtual ITextFieldWrapper MetaTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaTitle, IndexFieldNames.MetaTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis5</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public string MetaTitleValue
+		{
+			get { return MetaTitle.Value; }
+		}
+	
+		#region FakeFortis5Item Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{CC8C7F69-EC8A-4A56-98A7-2972AC9A87A0}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string HideFromNavigation = "Hide From Navigation";
+			public const string NavigationTitle = "Navigation Title";
+			public const string ContentTitle = "Content Title";
+			public const string ContentBody = "Content Body";
+			public const string ContentImage = "Content Image";
+			public const string MetaDescription = "Meta Description";
+			public const string MetaKeywords = "Meta Keywords";
+			public const string MetaTitle = "Meta Title";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string HideFromNavigation = "hide_from_navigation";
+			public const string NavigationTitle = "navigation_title";
+			public const string ContentTitle = "content_title";
+			public const string ContentBody = "content_body";
+			public const string ContentImage = "content_image";
+			public const string MetaDescription = "meta_description";
+			public const string MetaKeywords = "meta_keywords";
+			public const string MetaTitle = "meta_title";
+		}
+
+		#endregion
+	}
+}
+
+#endregion
+#region FakeFortis7 (UserDefined)
+
+namespace Testground.Model.Fortis.Templates.UserDefined
+{
+	using System;
+	using System.Collections.Generic;
+	using global::Fortis.Model;
+	using global::Fortis.Model.Fields;
+	using global::Fortis.Providers;
+
+
+	/// <summary>
+	/// <para>Template interface</para>
+	/// <para>Template: FakeFortis7</para>
+	/// <para>ID: {DF1BD86D-48EC-4424-8F65-A25FB1DD10FD}</para>
+	/// <para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis7</para>
+	/// </summary>
+	[TemplateMapping(FakeFortis7Item.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface IFakeFortis7Item : ICustomItemWrapper , Testground.Model.Fortis.Templates.UserDefined.IContentPageItem
+	{		
+	}
+
+	/// <summary>
+	/// <para>Template class</para><para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis7</para>
+	/// </summary>
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, FakeFortis7Item.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(FakeFortis7Item.Constants.TemplateIdStr, "")]
+	public partial class FakeFortis7Item : CustomItemWrapper, IFakeFortis7Item
+	{
+		private Item _item = null;
+
+		public FakeFortis7Item(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+
+		public FakeFortis7Item(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+
+		public FakeFortis7Item(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+
+		public FakeFortis7Item(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		{
+			_item = item;
+		}
+
+		/// <summary><para>Template: FakeFortis7</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public virtual IBooleanFieldWrapper HideFromNavigation
+		{
+			get { return GetField<BooleanFieldWrapper>(FieldNames.HideFromNavigation, IndexFieldNames.HideFromNavigation); }
+		}
+
+		/// <summary><para>Template: FakeFortis7</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public bool HideFromNavigationValue
+		{
+			get { return HideFromNavigation.Value; }
+		}
+		/// <summary><para>Template: FakeFortis7</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public virtual ITextFieldWrapper NavigationTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.NavigationTitle, IndexFieldNames.NavigationTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis7</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public string NavigationTitleValue
+		{
+			get { return NavigationTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis7</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public virtual ITextFieldWrapper ContentTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.ContentTitle, IndexFieldNames.ContentTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis7</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public string ContentTitleValue
+		{
+			get { return ContentTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis7</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public virtual IRichTextFieldWrapper ContentBody
+		{
+			get { return GetField<RichTextFieldWrapper>(FieldNames.ContentBody, IndexFieldNames.ContentBody); }
+		}
+
+		/// <summary><para>Template: FakeFortis7</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public string ContentBodyValue
+		{
+			get { return ContentBody.Value; }
+		}
+		/// <summary><para>Template: FakeFortis7</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public virtual IImageFieldWrapper ContentImage
+		{
+			get { return GetField<ImageFieldWrapper>(FieldNames.ContentImage); }
+		}
+
+		/// <summary><para>Template: FakeFortis7</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public string ContentImageValue
+		{
+			get { return ContentImage.Value; }
+		}
+		/// <summary><para>Template: FakeFortis7</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public virtual ITextFieldWrapper MetaDescription
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaDescription, IndexFieldNames.MetaDescription); }
+		}
+
+		/// <summary><para>Template: FakeFortis7</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public string MetaDescriptionValue
+		{
+			get { return MetaDescription.Value; }
+		}
+		/// <summary><para>Template: FakeFortis7</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public virtual ITextFieldWrapper MetaKeywords
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaKeywords, IndexFieldNames.MetaKeywords); }
+		}
+
+		/// <summary><para>Template: FakeFortis7</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public string MetaKeywordsValue
+		{
+			get { return MetaKeywords.Value; }
+		}
+		/// <summary><para>Template: FakeFortis7</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public virtual ITextFieldWrapper MetaTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaTitle, IndexFieldNames.MetaTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis7</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public string MetaTitleValue
+		{
+			get { return MetaTitle.Value; }
+		}
+	
+		#region FakeFortis7Item Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{DF1BD86D-48EC-4424-8F65-A25FB1DD10FD}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string HideFromNavigation = "Hide From Navigation";
+			public const string NavigationTitle = "Navigation Title";
+			public const string ContentTitle = "Content Title";
+			public const string ContentBody = "Content Body";
+			public const string ContentImage = "Content Image";
+			public const string MetaDescription = "Meta Description";
+			public const string MetaKeywords = "Meta Keywords";
+			public const string MetaTitle = "Meta Title";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string HideFromNavigation = "hide_from_navigation";
+			public const string NavigationTitle = "navigation_title";
+			public const string ContentTitle = "content_title";
+			public const string ContentBody = "content_body";
+			public const string ContentImage = "content_image";
+			public const string MetaDescription = "meta_description";
+			public const string MetaKeywords = "meta_keywords";
+			public const string MetaTitle = "meta_title";
+		}
+
+		#endregion
+	}
+}
+
+#endregion
+#region FakeFortis3 (UserDefined)
+
+namespace Testground.Model.Fortis.Templates.UserDefined
+{
+	using System;
+	using System.Collections.Generic;
+	using global::Fortis.Model;
+	using global::Fortis.Model.Fields;
+	using global::Fortis.Providers;
+
+
+	/// <summary>
+	/// <para>Template interface</para>
+	/// <para>Template: FakeFortis3</para>
+	/// <para>ID: {E8F2474F-659E-4B64-BEA5-A7BC6879EFF7}</para>
+	/// <para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis3</para>
+	/// </summary>
+	[TemplateMapping(FakeFortis3Item.Constants.TemplateIdStr, "InterfaceMap")]
+	public partial interface IFakeFortis3Item : ICustomItemWrapper , Testground.Model.Fortis.Templates.UserDefined.IContentPageItem
+	{		
+	}
+
+	/// <summary>
+	/// <para>Template class</para><para>/sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis3</para>
+	/// </summary>
+	[PredefinedQuery("TemplateId", ComparisonType.Equal, FakeFortis3Item.Constants.TemplateIdStr, typeof(Guid))]
+	[TemplateMapping(FakeFortis3Item.Constants.TemplateIdStr, "")]
+	public partial class FakeFortis3Item : CustomItemWrapper, IFakeFortis3Item
+	{
+		private Item _item = null;
+
+		public FakeFortis3Item(ISpawnProvider spawnProvider) : base(null, spawnProvider) { }
+
+		public FakeFortis3Item(Guid id, ISpawnProvider spawnProvider) : base(id, spawnProvider) { }
+
+		public FakeFortis3Item(Guid id, Dictionary<string, object> lazyFields, ISpawnProvider spawnProvider) : base(id, lazyFields, spawnProvider) { }
+
+		public FakeFortis3Item(Item item, ISpawnProvider spawnProvider) : base(item, spawnProvider)
+		{
+			_item = item;
+		}
+
+		/// <summary><para>Template: FakeFortis3</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public virtual IBooleanFieldWrapper HideFromNavigation
+		{
+			get { return GetField<BooleanFieldWrapper>(FieldNames.HideFromNavigation, IndexFieldNames.HideFromNavigation); }
+		}
+
+		/// <summary><para>Template: FakeFortis3</para><para>Field: HideFromNavigation</para><para>Data type: Checkbox</para></summary>
+		[IndexField(IndexFieldNames.HideFromNavigation)]
+		public bool HideFromNavigationValue
+		{
+			get { return HideFromNavigation.Value; }
+		}
+		/// <summary><para>Template: FakeFortis3</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public virtual ITextFieldWrapper NavigationTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.NavigationTitle, IndexFieldNames.NavigationTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis3</para><para>Field: NavigationTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.NavigationTitle)]
+		public string NavigationTitleValue
+		{
+			get { return NavigationTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis3</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public virtual ITextFieldWrapper ContentTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.ContentTitle, IndexFieldNames.ContentTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis3</para><para>Field: ContentTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.ContentTitle)]
+		public string ContentTitleValue
+		{
+			get { return ContentTitle.Value; }
+		}
+		/// <summary><para>Template: FakeFortis3</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public virtual IRichTextFieldWrapper ContentBody
+		{
+			get { return GetField<RichTextFieldWrapper>(FieldNames.ContentBody, IndexFieldNames.ContentBody); }
+		}
+
+		/// <summary><para>Template: FakeFortis3</para><para>Field: ContentBody</para><para>Data type: Rich Text</para></summary>
+		[IndexField(IndexFieldNames.ContentBody)]
+		public string ContentBodyValue
+		{
+			get { return ContentBody.Value; }
+		}
+		/// <summary><para>Template: FakeFortis3</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public virtual IImageFieldWrapper ContentImage
+		{
+			get { return GetField<ImageFieldWrapper>(FieldNames.ContentImage); }
+		}
+
+		/// <summary><para>Template: FakeFortis3</para><para>Field: ContentImage</para><para>Data type: Image</para></summary>
+		public string ContentImageValue
+		{
+			get { return ContentImage.Value; }
+		}
+		/// <summary><para>Template: FakeFortis3</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public virtual ITextFieldWrapper MetaDescription
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaDescription, IndexFieldNames.MetaDescription); }
+		}
+
+		/// <summary><para>Template: FakeFortis3</para><para>Field: MetaDescription</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaDescription)]
+		public string MetaDescriptionValue
+		{
+			get { return MetaDescription.Value; }
+		}
+		/// <summary><para>Template: FakeFortis3</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public virtual ITextFieldWrapper MetaKeywords
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaKeywords, IndexFieldNames.MetaKeywords); }
+		}
+
+		/// <summary><para>Template: FakeFortis3</para><para>Field: MetaKeywords</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaKeywords)]
+		public string MetaKeywordsValue
+		{
+			get { return MetaKeywords.Value; }
+		}
+		/// <summary><para>Template: FakeFortis3</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public virtual ITextFieldWrapper MetaTitle
+		{
+			get { return GetField<TextFieldWrapper>(FieldNames.MetaTitle, IndexFieldNames.MetaTitle); }
+		}
+
+		/// <summary><para>Template: FakeFortis3</para><para>Field: MetaTitle</para><para>Data type: Single-Line Text</para></summary>
+		[IndexField(IndexFieldNames.MetaTitle)]
+		public string MetaTitleValue
+		{
+			get { return MetaTitle.Value; }
+		}
+	
+		#region FakeFortis3Item Constants 
+
+		public static class Constants
+		{
+			public const string TemplateIdStr = "{E8F2474F-659E-4B64-BEA5-A7BC6879EFF7}";
+			public static Guid TemplateId = new Guid(TemplateIdStr);
+		}
+
+		public static class FieldNames
+		{
+			public const string HideFromNavigation = "Hide From Navigation";
+			public const string NavigationTitle = "Navigation Title";
+			public const string ContentTitle = "Content Title";
+			public const string ContentBody = "Content Body";
+			public const string ContentImage = "Content Image";
+			public const string MetaDescription = "Meta Description";
+			public const string MetaKeywords = "Meta Keywords";
+			public const string MetaTitle = "Meta Title";
+		}
+
+		public static class IndexFieldNames
+		{
+			public const string HideFromNavigation = "hide_from_navigation";
+			public const string NavigationTitle = "navigation_title";
+			public const string ContentTitle = "content_title";
+			public const string ContentBody = "content_body";
+			public const string ContentImage = "content_image";
+			public const string MetaDescription = "meta_description";
+			public const string MetaKeywords = "meta_keywords";
+			public const string MetaTitle = "meta_title";
+		}
+
+		#endregion
+	}
+}
+
+#endregion
 #region Navigation (UserDefined)
 
 namespace Testground.Model.Fortis.Templates.UserDefined
@@ -753,4 +2023,3 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 }
 
 #endregion
-

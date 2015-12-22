@@ -1,0 +1,93 @@
+----item----
+version: 1
+id: {C5B7A91D-3B79-4FF3-9CCD-14F5A013C8A3}
+database: master
+path: /sitecore/content/Home/IsolationTests/GetItem/Child 2
+parent: {318080AE-53C8-4728-BFAA-021AC5BE9857}
+name: Child 2
+master: {00000000-0000-0000-0000-000000000000}
+template: {05960472-6B77-49F0-AE2E-3C1525A61FD7}
+templatekey: FakeFortis1
+
+----version----
+language: en
+version: 1
+revision: 86507101-9512-4537-8740-72df51af4341
+
+----field----
+field: {DD1074E7-7F1C-4178-9078-219EDF3BB445}
+name: Content Title
+key: content title
+content-length: 7
+
+Child 2
+----field----
+field: {0240B88C-4348-472E-A9AD-22AAC7D3DAE2}
+name: Content Body
+key: content body
+content-length: 445
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+----field----
+field: {A7D05526-C33D-41FB-A2BB-5BD43CC4ECFF}
+name: Content Image
+key: content image
+content-length: 58
+
+<image mediaid="{04DAD0FD-DB66-4070-881F-17264CA257E1}" />
+----field----
+field: {A2659CBF-9C0C-4703-9CD9-86B5C10B972E}
+name: Navigation Title
+key: navigation title
+content-length: 5
+
+About
+----field----
+field: {E942D8DA-D769-42F0-A5CE-859D5B76ABF0}
+name: Meta Title
+key: meta title
+content-length: 5
+
+About
+----field----
+field: {6CBC9CFE-37BF-4BFA-8A44-A1A3B5993742}
+name: Meta Keywords
+key: meta keywords
+content-length: 14
+
+about keywords
+----field----
+field: {74585FED-E4A9-46BD-B6A0-541B3E865F8E}
+name: Meta Description
+key: meta description
+content-length: 14
+
+about keywords
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20151205T222358Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+86507101-9512-4537-8740-72df51af4341
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20151222T221726Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

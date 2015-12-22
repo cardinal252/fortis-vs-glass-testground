@@ -75,8 +75,20 @@ namespace Testground.Website.TestCases
 			return ret;
 		}
 
-		protected IEnumerable<T> GetGlassItems<T>(Guid itemId, int count)
-			where T : class, IGlassBase
+        protected IEnumerable<Item> GetSitecoreItems(string path, int count)
+        {
+            var ret = new List<Item>();
+
+            for (int i = 0; i < count; i++)
+            {
+                ret.Add(Context.Database.GetItem(path));
+            }
+
+            return ret;
+        }
+
+        protected IEnumerable<T> GetGlassItems<T>(Guid itemId, int count)
+			where T : class
 		{
 			var ret = new List<T>();
 
@@ -87,8 +99,20 @@ namespace Testground.Website.TestCases
 
 			return ret;
 		}
+        protected IEnumerable<T> GetGlassItems<T>(string path, int count)
+           where T : class
+        {
+            var ret = new List<T>();
 
-		protected IEnumerable<T> GetFortisItems<T>(Guid itemId, int count) 
+            for (int i = 0; i < count; i++)
+            {
+                ret.Add(this.GlassService.GetItem<T>(path));
+            }
+
+            return ret;
+        }
+
+        protected IEnumerable<T> GetFortisItems<T>(Guid itemId, int count) 
 			where T : IItemWrapper
 		{
 			var ret = new List<T>();
@@ -100,5 +124,17 @@ namespace Testground.Website.TestCases
 
 			return ret;
 		}
-	}
+        protected IEnumerable<T> GetFortisItems<T>(string path, int count)
+            where T : IItemWrapper
+        {
+            var ret = new List<T>();
+
+            for (int i = 0; i < count; i++)
+            {
+                ret.Add(this.FortisService.Select<T>(path));
+            }
+
+            return ret;
+        }
+    }
 }
