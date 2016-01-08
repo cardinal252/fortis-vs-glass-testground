@@ -1,5 +1,7 @@
 ﻿using Fortis.Model;
 using Glass.Mapper.Sc;
+using Testground.Model.Fortis.Fields;
+using Testground.Model.Fortis.Rendering;
 
 namespace Testground.Website.TestCases.Fields
 {
@@ -29,7 +31,7 @@ namespace Testground.Website.TestCases.Fields
 
 		protected override void ExecuteFortisTest()
 		{
-			var items = this.GetFortisItems<Testground.Model.Fortis.Fields.ISingleLineText>(
+			var items = this.GetFortisItems<ISingleLineText>(
 				Const.SingleLineTextID, 
 				Const.ItemCount);
 

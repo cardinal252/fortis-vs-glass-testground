@@ -18,7 +18,7 @@ namespace Testground.Website
         public static Guid CheckboxID = new Guid("{55B18EB0-F717-41FC-96B3-F1B7A2955EDA}");
         public static Guid ThreeFieldsID = new Guid("{CD824194-30E6-4866-B710-DB44E4B3E03E}");
 
-
+        public static Guid MenuId = new Guid("{4289DBB8-3B1E-4B0A-9BFA-BF4F21146E8B}");
 
     }
 }

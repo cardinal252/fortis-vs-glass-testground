@@ -10,14 +10,6 @@
 namespace Testground.Website {
     
     
-    public partial class TestRunner1 {
-        
-        /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+    public partial class TestRunner2 {
     }
 }

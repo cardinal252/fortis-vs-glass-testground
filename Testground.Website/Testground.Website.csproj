@@ -157,6 +157,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestRunner2.aspx" />
     <Content Include="TestRunner1.aspx" />
     <Content Include="TestRunner.aspx" />
     <Content Include="Web.config">
@@ -180,6 +181,7 @@
     <Compile Include="TestCases\IsolationMapping\GetItemIsolationTestCase.cs" />
     <Compile Include="TestCases\IsolationMapping\ReadFieldValueIsolationTestCase.cs" />
     <Compile Include="TestCases\ITestCaseResult.cs" />
+    <Compile Include="TestCases\Rendering\MenuRenderingTestCase.cs" />
     <Compile Include="TestCases\TestCase.cs" />
     <Compile Include="TestCases\ITestCase.cs" />
     <Compile Include="Const.cs" />
@@ -191,6 +193,13 @@
     <Compile Include="TestCases\TypeMapping\ReadFieldValueTestCase.cs" />
     <Compile Include="TestCases\TypeMapping\RenderFieldTestCase.cs" />
     <Compile Include="TestCases\IsolationMapping\GetItemPathIsolationTestCase.cs" />
+    <Compile Include="TestRunner2.aspx.cs">
+      <DependentUpon>TestRunner2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestRunner2.aspx.designer.cs">
+      <DependentUpon>TestRunner2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestRunner1.aspx.cs">
       <DependentUpon>TestRunner1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

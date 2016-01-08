@@ -11,17 +11,19 @@ using Testground.Website.TestCases;
 using Testground.Website.TestCases.Fields;
 using Testground.Website.TestCases.InterfaceMapping;
 using Testground.Website.TestCases.IsolationMapping;
+using Testground.Website.TestCases.Rendering;
 using Testground.Website.TestCases.TypeMapping;
 
 namespace Testground.Website
 {
-	public partial class TestRunner1 : Page
+	public partial class TestRunner2 : Page
 	{
-		private IEnumerable<ITestCase> IsolationCases;
+		private IEnumerable<ITestCase> RenderingCases;
 		private IEnumerable<ITestCase> FieldCases;
-        protected IEnumerable<ITestCaseResult> IsolationResults
+
+        protected IEnumerable<ITestCaseResult> RenderingResults
         {
-            get { return this.IsolationCases; }
+            get { return this.RenderingCases; }
         }
         protected IEnumerable<ITestCaseResult> FieldResults
         {
@@ -30,39 +32,27 @@ namespace Testground.Website
 
         protected override void OnLoad(EventArgs e)
 		{
-
-
-
-
 			base.OnLoad(e);
 
-			// Make sure context site and database are set to required values
-			Sitecore.Context.SetActiveSite(Const.ContextSiteName);
+            // Make sure context site and database are set to required values
+            Sitecore.Context.SetActiveSite(Const.ContextSiteName);
 			Sitecore.Context.Database = Database.GetDatabase(Const.DatabaseName);
 
 			var sitecoreContext = new SitecoreContext();
 			var itemFactory = DependencyResolver.Current.GetService<IItemFactory>();
 			var spawnProvider = DependencyResolver.Current.GetService<ISpawnProvider>();
 
-            this.IsolationCases = new List<ITestCase>
+            this.RenderingCases = new List<ITestCase>
             {
-                new GetItemIsolationTestCase(itemFactory,sitecoreContext),
-                new GetItemPathIsolationTestCase(itemFactory,sitecoreContext),
-                new GetChildrenIsolationTestCase(itemFactory,sitecoreContext),
-                new ReadFieldValueIsolationTestCase(itemFactory,sitecoreContext)
+                new MenuRenderingTestCase(itemFactory, sitecoreContext)
             };
 
             this.FieldCases = new List<ITestCase>
             {
-                new SingleLineTextFieldTestCase(itemFactory,sitecoreContext),
-                new SingleLineTextFieldTwiceTestCase(itemFactory,sitecoreContext),
-                new RichTextFieldTestCase(itemFactory,sitecoreContext),
-                new CheckboxFieldTestCase(itemFactory, sitecoreContext),
-                new ThreeFieldsTestCase(itemFactory, sitecoreContext)
 
             };
 
-            foreach (var test in this.IsolationCases)
+            foreach (var test in this.RenderingCases)
             {
                 test.Execute();
             }

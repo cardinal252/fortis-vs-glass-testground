@@ -67,6 +67,7 @@
     <Compile Include="IsolationModels\GetItem.cs" />
     <Compile Include="IsolationModels\ReadFieldValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderings\Menu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

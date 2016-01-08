@@ -188,30 +188,37 @@
     <SitecoreItem Include="sitecore\templates\User Defined\FakeFortisTemplates\FakeFortis1.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <CodeGenTemplate>&lt;None&gt;</CodeGenTemplate>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\User Defined\FakeFortisTemplates\FakeFortis2.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <CodeGenTemplate>&lt;None&gt;</CodeGenTemplate>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\User Defined\FakeFortisTemplates\FakeFortis3.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <CodeGenTemplate>&lt;None&gt;</CodeGenTemplate>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\User Defined\FakeFortisTemplates\FakeFortis4.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <CodeGenTemplate>&lt;None&gt;</CodeGenTemplate>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\User Defined\FakeFortisTemplates\FakeFortis5.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <CodeGenTemplate>&lt;None&gt;</CodeGenTemplate>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\User Defined\FakeFortisTemplates\FakeFortis6.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <CodeGenTemplate>&lt;None&gt;</CodeGenTemplate>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\User Defined\FakeFortisTemplates\FakeFortis7.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <CodeGenTemplate>&lt;None&gt;</CodeGenTemplate>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\User Defined\Page Types.item">
       <Icon>/temp/IconCache/Applications/16x16/folder.png</Icon>
