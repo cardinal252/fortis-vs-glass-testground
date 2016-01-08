@@ -41,9 +41,6 @@ namespace Testground.Model.Glass.Model.Glass
         [SitecoreInfo(SitecoreInfoType.Version)]
         int Version { get; }
 
-		[SitecoreInfo(SitecoreInfoType.Url)]
-        string Url { get; }
-
 	}
 
 	public abstract partial class GlassBase : IGlassBase{
@@ -62,14 +59,326 @@ namespace Testground.Model.Glass.Model.Glass
 	}
 }
 
+namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.FakeFortisTemplates
+{
 
 
+ 	/// <summary>
+	/// IFakeFortis1 Interface
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis1</para>	
+	/// <para>ID: 05960472-6b77-49f0-ae2e-3c1525a61fd7</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis1Constants.TemplateIdString )] //, Cachable = true
+	public partial interface IFakeFortis1 : IGlassBase , global::Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Page_Types.IContent_Page
+	{
+				}
 
 
+	public static partial class IFakeFortis1Constants{
+
+			public const string TemplateIdString = "05960472-6b77-49f0-ae2e-3c1525a61fd7";
+			public static readonly ID TemplateId = new ID(TemplateIdString);
+			public const string TemplateName = "FakeFortis1";
+
+					
+			public static readonly ID Hide_From_NavigationFieldId = new ID("9ab37834-1079-4a6e-b5b5-774c55ae8589");
+			public const string Hide_From_NavigationFieldName = "Hide From Navigation";
+			
+					
+			public static readonly ID Navigation_TitleFieldId = new ID("a2659cbf-9c0c-4703-9cd9-86b5c10b972e");
+			public const string Navigation_TitleFieldName = "Navigation Title";
+			
+					
+			public static readonly ID Content_TitleFieldId = new ID("dd1074e7-7f1c-4178-9078-219edf3bb445");
+			public const string Content_TitleFieldName = "Content Title";
+			
+					
+			public static readonly ID Content_BodyFieldId = new ID("0240b88c-4348-472e-a9ad-22aac7d3dae2");
+			public const string Content_BodyFieldName = "Content Body";
+			
+					
+			public static readonly ID Content_ImageFieldId = new ID("a7d05526-c33d-41fb-a2bb-5bd43cc4ecff");
+			public const string Content_ImageFieldName = "Content Image";
+			
+					
+			public static readonly ID Meta_DescriptionFieldId = new ID("74585fed-e4a9-46bd-b6a0-541b3e865f8e");
+			public const string Meta_DescriptionFieldName = "Meta Description";
+			
+					
+			public static readonly ID Meta_KeywordsFieldId = new ID("6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742");
+			public const string Meta_KeywordsFieldName = "Meta Keywords";
+			
+					
+			public static readonly ID Meta_TitleFieldId = new ID("e942d8da-d769-42f0-a5ce-859d5b76abf0");
+			public const string Meta_TitleFieldName = "Meta Title";
+			
+			
+
+	}
+
+	
+	/// <summary>
+	/// FakeFortis1
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis1</para>	
+	/// <para>ID: 05960472-6b77-49f0-ae2e-3c1525a61fd7</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis1Constants.TemplateIdString)] //, Cachable = true
+	public partial class FakeFortis1  : GlassBase, IFakeFortis1 
+	{
+	   
+						/// <summary>
+				/// The Hide From Navigation field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: 9ab37834-1079-4a6e-b5b5-774c55ae8589</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis1Constants.Hide_From_NavigationFieldName)]
+				public virtual bool Hide_From_Navigation  {get; set;}
+					
+						/// <summary>
+				/// The Navigation Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: a2659cbf-9c0c-4703-9cd9-86b5c10b972e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis1Constants.Navigation_TitleFieldName)]
+				public virtual string Navigation_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: dd1074e7-7f1c-4178-9078-219edf3bb445</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis1Constants.Content_TitleFieldName)]
+				public virtual string Content_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Body field.
+				/// <para></para>
+				/// <para>Field Type: Rich Text</para>		
+				/// <para>Field ID: 0240b88c-4348-472e-a9ad-22aac7d3dae2</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis1Constants.Content_BodyFieldName)]
+				public virtual string Content_Body  {get; set;}
+					
+						/// <summary>
+				/// The Content Image field.
+				/// <para></para>
+				/// <para>Field Type: Image</para>		
+				/// <para>Field ID: a7d05526-c33d-41fb-a2bb-5bd43cc4ecff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis1Constants.Content_ImageFieldName)]
+				public virtual Image Content_Image  {get; set;}
+					
+						/// <summary>
+				/// The Meta Description field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 74585fed-e4a9-46bd-b6a0-541b3e865f8e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis1Constants.Meta_DescriptionFieldName)]
+				public virtual string Meta_Description  {get; set;}
+					
+						/// <summary>
+				/// The Meta Keywords field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis1Constants.Meta_KeywordsFieldName)]
+				public virtual string Meta_Keywords  {get; set;}
+					
+						/// <summary>
+				/// The Meta Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: e942d8da-d769-42f0-a5ce-859d5b76abf0</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis1Constants.Meta_TitleFieldName)]
+				public virtual string Meta_Title  {get; set;}
+					
+			
+	}
+}
+namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.FakeFortisTemplates
+{
 
 
+ 	/// <summary>
+	/// IFakeFortis6 Interface
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis6</para>	
+	/// <para>ID: 162bd956-af0c-4c19-ac0c-b495e202c7e4</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis6Constants.TemplateIdString )] //, Cachable = true
+	public partial interface IFakeFortis6 : IGlassBase , global::Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Page_Types.IContent_Page
+	{
+				}
 
 
+	public static partial class IFakeFortis6Constants{
+
+			public const string TemplateIdString = "162bd956-af0c-4c19-ac0c-b495e202c7e4";
+			public static readonly ID TemplateId = new ID(TemplateIdString);
+			public const string TemplateName = "FakeFortis6";
+
+					
+			public static readonly ID Hide_From_NavigationFieldId = new ID("9ab37834-1079-4a6e-b5b5-774c55ae8589");
+			public const string Hide_From_NavigationFieldName = "Hide From Navigation";
+			
+					
+			public static readonly ID Navigation_TitleFieldId = new ID("a2659cbf-9c0c-4703-9cd9-86b5c10b972e");
+			public const string Navigation_TitleFieldName = "Navigation Title";
+			
+					
+			public static readonly ID Content_TitleFieldId = new ID("dd1074e7-7f1c-4178-9078-219edf3bb445");
+			public const string Content_TitleFieldName = "Content Title";
+			
+					
+			public static readonly ID Content_BodyFieldId = new ID("0240b88c-4348-472e-a9ad-22aac7d3dae2");
+			public const string Content_BodyFieldName = "Content Body";
+			
+					
+			public static readonly ID Content_ImageFieldId = new ID("a7d05526-c33d-41fb-a2bb-5bd43cc4ecff");
+			public const string Content_ImageFieldName = "Content Image";
+			
+					
+			public static readonly ID Meta_DescriptionFieldId = new ID("74585fed-e4a9-46bd-b6a0-541b3e865f8e");
+			public const string Meta_DescriptionFieldName = "Meta Description";
+			
+					
+			public static readonly ID Meta_KeywordsFieldId = new ID("6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742");
+			public const string Meta_KeywordsFieldName = "Meta Keywords";
+			
+					
+			public static readonly ID Meta_TitleFieldId = new ID("e942d8da-d769-42f0-a5ce-859d5b76abf0");
+			public const string Meta_TitleFieldName = "Meta Title";
+			
+			
+
+	}
+
+	
+	/// <summary>
+	/// FakeFortis6
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis6</para>	
+	/// <para>ID: 162bd956-af0c-4c19-ac0c-b495e202c7e4</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis6Constants.TemplateIdString)] //, Cachable = true
+	public partial class FakeFortis6  : GlassBase, IFakeFortis6 
+	{
+	   
+						/// <summary>
+				/// The Hide From Navigation field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: 9ab37834-1079-4a6e-b5b5-774c55ae8589</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis6Constants.Hide_From_NavigationFieldName)]
+				public virtual bool Hide_From_Navigation  {get; set;}
+					
+						/// <summary>
+				/// The Navigation Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: a2659cbf-9c0c-4703-9cd9-86b5c10b972e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis6Constants.Navigation_TitleFieldName)]
+				public virtual string Navigation_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: dd1074e7-7f1c-4178-9078-219edf3bb445</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis6Constants.Content_TitleFieldName)]
+				public virtual string Content_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Body field.
+				/// <para></para>
+				/// <para>Field Type: Rich Text</para>		
+				/// <para>Field ID: 0240b88c-4348-472e-a9ad-22aac7d3dae2</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis6Constants.Content_BodyFieldName)]
+				public virtual string Content_Body  {get; set;}
+					
+						/// <summary>
+				/// The Content Image field.
+				/// <para></para>
+				/// <para>Field Type: Image</para>		
+				/// <para>Field ID: a7d05526-c33d-41fb-a2bb-5bd43cc4ecff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis6Constants.Content_ImageFieldName)]
+				public virtual Image Content_Image  {get; set;}
+					
+						/// <summary>
+				/// The Meta Description field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 74585fed-e4a9-46bd-b6a0-541b3e865f8e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis6Constants.Meta_DescriptionFieldName)]
+				public virtual string Meta_Description  {get; set;}
+					
+						/// <summary>
+				/// The Meta Keywords field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis6Constants.Meta_KeywordsFieldName)]
+				public virtual string Meta_Keywords  {get; set;}
+					
+						/// <summary>
+				/// The Meta Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: e942d8da-d769-42f0-a5ce-859d5b76abf0</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis6Constants.Meta_TitleFieldName)]
+				public virtual string Meta_Title  {get; set;}
+					
+			
+	}
+}
 namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Data
 {
 
@@ -135,16 +444,6 @@ namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Dat
 			
 	}
 }
-
-
-
-
-
-
-
-
-
-
 namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Data
 {
 
@@ -210,16 +509,166 @@ namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Dat
 			
 	}
 }
+namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.FakeFortisTemplates
+{
 
 
+ 	/// <summary>
+	/// IFakeFortis4 Interface
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis4</para>	
+	/// <para>ID: 4ee6bcd3-ebe3-4dc5-811c-0a6c2161b69b</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis4Constants.TemplateIdString )] //, Cachable = true
+	public partial interface IFakeFortis4 : IGlassBase , global::Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Page_Types.IContent_Page
+	{
+				}
 
 
+	public static partial class IFakeFortis4Constants{
 
+			public const string TemplateIdString = "4ee6bcd3-ebe3-4dc5-811c-0a6c2161b69b";
+			public static readonly ID TemplateId = new ID(TemplateIdString);
+			public const string TemplateName = "FakeFortis4";
 
+					
+			public static readonly ID Hide_From_NavigationFieldId = new ID("9ab37834-1079-4a6e-b5b5-774c55ae8589");
+			public const string Hide_From_NavigationFieldName = "Hide From Navigation";
+			
+					
+			public static readonly ID Navigation_TitleFieldId = new ID("a2659cbf-9c0c-4703-9cd9-86b5c10b972e");
+			public const string Navigation_TitleFieldName = "Navigation Title";
+			
+					
+			public static readonly ID Content_TitleFieldId = new ID("dd1074e7-7f1c-4178-9078-219edf3bb445");
+			public const string Content_TitleFieldName = "Content Title";
+			
+					
+			public static readonly ID Content_BodyFieldId = new ID("0240b88c-4348-472e-a9ad-22aac7d3dae2");
+			public const string Content_BodyFieldName = "Content Body";
+			
+					
+			public static readonly ID Content_ImageFieldId = new ID("a7d05526-c33d-41fb-a2bb-5bd43cc4ecff");
+			public const string Content_ImageFieldName = "Content Image";
+			
+					
+			public static readonly ID Meta_DescriptionFieldId = new ID("74585fed-e4a9-46bd-b6a0-541b3e865f8e");
+			public const string Meta_DescriptionFieldName = "Meta Description";
+			
+					
+			public static readonly ID Meta_KeywordsFieldId = new ID("6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742");
+			public const string Meta_KeywordsFieldName = "Meta Keywords";
+			
+					
+			public static readonly ID Meta_TitleFieldId = new ID("e942d8da-d769-42f0-a5ce-859d5b76abf0");
+			public const string Meta_TitleFieldName = "Meta Title";
+			
+			
 
+	}
 
-
-
+	
+	/// <summary>
+	/// FakeFortis4
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis4</para>	
+	/// <para>ID: 4ee6bcd3-ebe3-4dc5-811c-0a6c2161b69b</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis4Constants.TemplateIdString)] //, Cachable = true
+	public partial class FakeFortis4  : GlassBase, IFakeFortis4 
+	{
+	   
+						/// <summary>
+				/// The Hide From Navigation field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: 9ab37834-1079-4a6e-b5b5-774c55ae8589</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis4Constants.Hide_From_NavigationFieldName)]
+				public virtual bool Hide_From_Navigation  {get; set;}
+					
+						/// <summary>
+				/// The Navigation Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: a2659cbf-9c0c-4703-9cd9-86b5c10b972e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis4Constants.Navigation_TitleFieldName)]
+				public virtual string Navigation_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: dd1074e7-7f1c-4178-9078-219edf3bb445</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis4Constants.Content_TitleFieldName)]
+				public virtual string Content_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Body field.
+				/// <para></para>
+				/// <para>Field Type: Rich Text</para>		
+				/// <para>Field ID: 0240b88c-4348-472e-a9ad-22aac7d3dae2</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis4Constants.Content_BodyFieldName)]
+				public virtual string Content_Body  {get; set;}
+					
+						/// <summary>
+				/// The Content Image field.
+				/// <para></para>
+				/// <para>Field Type: Image</para>		
+				/// <para>Field ID: a7d05526-c33d-41fb-a2bb-5bd43cc4ecff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis4Constants.Content_ImageFieldName)]
+				public virtual Image Content_Image  {get; set;}
+					
+						/// <summary>
+				/// The Meta Description field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 74585fed-e4a9-46bd-b6a0-541b3e865f8e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis4Constants.Meta_DescriptionFieldName)]
+				public virtual string Meta_Description  {get; set;}
+					
+						/// <summary>
+				/// The Meta Keywords field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis4Constants.Meta_KeywordsFieldName)]
+				public virtual string Meta_Keywords  {get; set;}
+					
+						/// <summary>
+				/// The Meta Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: e942d8da-d769-42f0-a5ce-859d5b76abf0</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis4Constants.Meta_TitleFieldName)]
+				public virtual string Meta_Title  {get; set;}
+					
+			
+	}
+}
 namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Data
 {
 
@@ -285,16 +734,166 @@ namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Dat
 			
 	}
 }
+namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.FakeFortisTemplates
+{
 
 
+ 	/// <summary>
+	/// IFakeFortis8 Interface
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis8</para>	
+	/// <para>ID: 789ac4b3-29b5-4ac2-9abf-921b88dbe8bb</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis8Constants.TemplateIdString )] //, Cachable = true
+	public partial interface IFakeFortis8 : IGlassBase , global::Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Page_Types.IContent_Page
+	{
+				}
 
 
+	public static partial class IFakeFortis8Constants{
 
+			public const string TemplateIdString = "789ac4b3-29b5-4ac2-9abf-921b88dbe8bb";
+			public static readonly ID TemplateId = new ID(TemplateIdString);
+			public const string TemplateName = "FakeFortis8";
 
+					
+			public static readonly ID Hide_From_NavigationFieldId = new ID("9ab37834-1079-4a6e-b5b5-774c55ae8589");
+			public const string Hide_From_NavigationFieldName = "Hide From Navigation";
+			
+					
+			public static readonly ID Navigation_TitleFieldId = new ID("a2659cbf-9c0c-4703-9cd9-86b5c10b972e");
+			public const string Navigation_TitleFieldName = "Navigation Title";
+			
+					
+			public static readonly ID Content_TitleFieldId = new ID("dd1074e7-7f1c-4178-9078-219edf3bb445");
+			public const string Content_TitleFieldName = "Content Title";
+			
+					
+			public static readonly ID Content_BodyFieldId = new ID("0240b88c-4348-472e-a9ad-22aac7d3dae2");
+			public const string Content_BodyFieldName = "Content Body";
+			
+					
+			public static readonly ID Content_ImageFieldId = new ID("a7d05526-c33d-41fb-a2bb-5bd43cc4ecff");
+			public const string Content_ImageFieldName = "Content Image";
+			
+					
+			public static readonly ID Meta_DescriptionFieldId = new ID("74585fed-e4a9-46bd-b6a0-541b3e865f8e");
+			public const string Meta_DescriptionFieldName = "Meta Description";
+			
+					
+			public static readonly ID Meta_KeywordsFieldId = new ID("6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742");
+			public const string Meta_KeywordsFieldName = "Meta Keywords";
+			
+					
+			public static readonly ID Meta_TitleFieldId = new ID("e942d8da-d769-42f0-a5ce-859d5b76abf0");
+			public const string Meta_TitleFieldName = "Meta Title";
+			
+			
 
+	}
 
-
-
+	
+	/// <summary>
+	/// FakeFortis8
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis8</para>	
+	/// <para>ID: 789ac4b3-29b5-4ac2-9abf-921b88dbe8bb</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis8Constants.TemplateIdString)] //, Cachable = true
+	public partial class FakeFortis8  : GlassBase, IFakeFortis8 
+	{
+	   
+						/// <summary>
+				/// The Hide From Navigation field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: 9ab37834-1079-4a6e-b5b5-774c55ae8589</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis8Constants.Hide_From_NavigationFieldName)]
+				public virtual bool Hide_From_Navigation  {get; set;}
+					
+						/// <summary>
+				/// The Navigation Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: a2659cbf-9c0c-4703-9cd9-86b5c10b972e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis8Constants.Navigation_TitleFieldName)]
+				public virtual string Navigation_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: dd1074e7-7f1c-4178-9078-219edf3bb445</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis8Constants.Content_TitleFieldName)]
+				public virtual string Content_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Body field.
+				/// <para></para>
+				/// <para>Field Type: Rich Text</para>		
+				/// <para>Field ID: 0240b88c-4348-472e-a9ad-22aac7d3dae2</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis8Constants.Content_BodyFieldName)]
+				public virtual string Content_Body  {get; set;}
+					
+						/// <summary>
+				/// The Content Image field.
+				/// <para></para>
+				/// <para>Field Type: Image</para>		
+				/// <para>Field ID: a7d05526-c33d-41fb-a2bb-5bd43cc4ecff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis8Constants.Content_ImageFieldName)]
+				public virtual Image Content_Image  {get; set;}
+					
+						/// <summary>
+				/// The Meta Description field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 74585fed-e4a9-46bd-b6a0-541b3e865f8e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis8Constants.Meta_DescriptionFieldName)]
+				public virtual string Meta_Description  {get; set;}
+					
+						/// <summary>
+				/// The Meta Keywords field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis8Constants.Meta_KeywordsFieldName)]
+				public virtual string Meta_Keywords  {get; set;}
+					
+						/// <summary>
+				/// The Meta Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: e942d8da-d769-42f0-a5ce-859d5b76abf0</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis8Constants.Meta_TitleFieldName)]
+				public virtual string Meta_Title  {get; set;}
+					
+			
+	}
+}
 namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Page_Types
 {
 
@@ -455,16 +1054,166 @@ namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Pag
 			
 	}
 }
+namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.FakeFortisTemplates
+{
 
 
+ 	/// <summary>
+	/// IFakeFortis2 Interface
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis2</para>	
+	/// <para>ID: 90d0bf78-871a-4d46-baa0-d5ce0b97c4c1</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis2Constants.TemplateIdString )] //, Cachable = true
+	public partial interface IFakeFortis2 : IGlassBase , global::Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Page_Types.IContent_Page
+	{
+				}
 
 
+	public static partial class IFakeFortis2Constants{
 
+			public const string TemplateIdString = "90d0bf78-871a-4d46-baa0-d5ce0b97c4c1";
+			public static readonly ID TemplateId = new ID(TemplateIdString);
+			public const string TemplateName = "FakeFortis2";
 
+					
+			public static readonly ID Hide_From_NavigationFieldId = new ID("9ab37834-1079-4a6e-b5b5-774c55ae8589");
+			public const string Hide_From_NavigationFieldName = "Hide From Navigation";
+			
+					
+			public static readonly ID Navigation_TitleFieldId = new ID("a2659cbf-9c0c-4703-9cd9-86b5c10b972e");
+			public const string Navigation_TitleFieldName = "Navigation Title";
+			
+					
+			public static readonly ID Content_TitleFieldId = new ID("dd1074e7-7f1c-4178-9078-219edf3bb445");
+			public const string Content_TitleFieldName = "Content Title";
+			
+					
+			public static readonly ID Content_BodyFieldId = new ID("0240b88c-4348-472e-a9ad-22aac7d3dae2");
+			public const string Content_BodyFieldName = "Content Body";
+			
+					
+			public static readonly ID Content_ImageFieldId = new ID("a7d05526-c33d-41fb-a2bb-5bd43cc4ecff");
+			public const string Content_ImageFieldName = "Content Image";
+			
+					
+			public static readonly ID Meta_DescriptionFieldId = new ID("74585fed-e4a9-46bd-b6a0-541b3e865f8e");
+			public const string Meta_DescriptionFieldName = "Meta Description";
+			
+					
+			public static readonly ID Meta_KeywordsFieldId = new ID("6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742");
+			public const string Meta_KeywordsFieldName = "Meta Keywords";
+			
+					
+			public static readonly ID Meta_TitleFieldId = new ID("e942d8da-d769-42f0-a5ce-859d5b76abf0");
+			public const string Meta_TitleFieldName = "Meta Title";
+			
+			
 
+	}
 
-
-
+	
+	/// <summary>
+	/// FakeFortis2
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis2</para>	
+	/// <para>ID: 90d0bf78-871a-4d46-baa0-d5ce0b97c4c1</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis2Constants.TemplateIdString)] //, Cachable = true
+	public partial class FakeFortis2  : GlassBase, IFakeFortis2 
+	{
+	   
+						/// <summary>
+				/// The Hide From Navigation field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: 9ab37834-1079-4a6e-b5b5-774c55ae8589</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis2Constants.Hide_From_NavigationFieldName)]
+				public virtual bool Hide_From_Navigation  {get; set;}
+					
+						/// <summary>
+				/// The Navigation Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: a2659cbf-9c0c-4703-9cd9-86b5c10b972e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis2Constants.Navigation_TitleFieldName)]
+				public virtual string Navigation_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: dd1074e7-7f1c-4178-9078-219edf3bb445</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis2Constants.Content_TitleFieldName)]
+				public virtual string Content_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Body field.
+				/// <para></para>
+				/// <para>Field Type: Rich Text</para>		
+				/// <para>Field ID: 0240b88c-4348-472e-a9ad-22aac7d3dae2</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis2Constants.Content_BodyFieldName)]
+				public virtual string Content_Body  {get; set;}
+					
+						/// <summary>
+				/// The Content Image field.
+				/// <para></para>
+				/// <para>Field Type: Image</para>		
+				/// <para>Field ID: a7d05526-c33d-41fb-a2bb-5bd43cc4ecff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis2Constants.Content_ImageFieldName)]
+				public virtual Image Content_Image  {get; set;}
+					
+						/// <summary>
+				/// The Meta Description field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 74585fed-e4a9-46bd-b6a0-541b3e865f8e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis2Constants.Meta_DescriptionFieldName)]
+				public virtual string Meta_Description  {get; set;}
+					
+						/// <summary>
+				/// The Meta Keywords field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis2Constants.Meta_KeywordsFieldName)]
+				public virtual string Meta_Keywords  {get; set;}
+					
+						/// <summary>
+				/// The Meta Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: e942d8da-d769-42f0-a5ce-859d5b76abf0</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis2Constants.Meta_TitleFieldName)]
+				public virtual string Meta_Title  {get; set;}
+					
+			
+	}
+}
 namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Data
 {
 
@@ -580,16 +1329,486 @@ namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Dat
 			
 	}
 }
+namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.FakeFortisTemplates
+{
 
 
+ 	/// <summary>
+	/// IFakeFortis5 Interface
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis5</para>	
+	/// <para>ID: cc8c7f69-ec8a-4a56-98a7-2972ac9a87a0</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis5Constants.TemplateIdString )] //, Cachable = true
+	public partial interface IFakeFortis5 : IGlassBase , global::Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Page_Types.IContent_Page
+	{
+				}
 
 
+	public static partial class IFakeFortis5Constants{
+
+			public const string TemplateIdString = "cc8c7f69-ec8a-4a56-98a7-2972ac9a87a0";
+			public static readonly ID TemplateId = new ID(TemplateIdString);
+			public const string TemplateName = "FakeFortis5";
+
+					
+			public static readonly ID Hide_From_NavigationFieldId = new ID("9ab37834-1079-4a6e-b5b5-774c55ae8589");
+			public const string Hide_From_NavigationFieldName = "Hide From Navigation";
+			
+					
+			public static readonly ID Navigation_TitleFieldId = new ID("a2659cbf-9c0c-4703-9cd9-86b5c10b972e");
+			public const string Navigation_TitleFieldName = "Navigation Title";
+			
+					
+			public static readonly ID Content_TitleFieldId = new ID("dd1074e7-7f1c-4178-9078-219edf3bb445");
+			public const string Content_TitleFieldName = "Content Title";
+			
+					
+			public static readonly ID Content_BodyFieldId = new ID("0240b88c-4348-472e-a9ad-22aac7d3dae2");
+			public const string Content_BodyFieldName = "Content Body";
+			
+					
+			public static readonly ID Content_ImageFieldId = new ID("a7d05526-c33d-41fb-a2bb-5bd43cc4ecff");
+			public const string Content_ImageFieldName = "Content Image";
+			
+					
+			public static readonly ID Meta_DescriptionFieldId = new ID("74585fed-e4a9-46bd-b6a0-541b3e865f8e");
+			public const string Meta_DescriptionFieldName = "Meta Description";
+			
+					
+			public static readonly ID Meta_KeywordsFieldId = new ID("6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742");
+			public const string Meta_KeywordsFieldName = "Meta Keywords";
+			
+					
+			public static readonly ID Meta_TitleFieldId = new ID("e942d8da-d769-42f0-a5ce-859d5b76abf0");
+			public const string Meta_TitleFieldName = "Meta Title";
+			
+			
+
+	}
+
+	
+	/// <summary>
+	/// FakeFortis5
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis5</para>	
+	/// <para>ID: cc8c7f69-ec8a-4a56-98a7-2972ac9a87a0</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis5Constants.TemplateIdString)] //, Cachable = true
+	public partial class FakeFortis5  : GlassBase, IFakeFortis5 
+	{
+	   
+						/// <summary>
+				/// The Hide From Navigation field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: 9ab37834-1079-4a6e-b5b5-774c55ae8589</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis5Constants.Hide_From_NavigationFieldName)]
+				public virtual bool Hide_From_Navigation  {get; set;}
+					
+						/// <summary>
+				/// The Navigation Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: a2659cbf-9c0c-4703-9cd9-86b5c10b972e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis5Constants.Navigation_TitleFieldName)]
+				public virtual string Navigation_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: dd1074e7-7f1c-4178-9078-219edf3bb445</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis5Constants.Content_TitleFieldName)]
+				public virtual string Content_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Body field.
+				/// <para></para>
+				/// <para>Field Type: Rich Text</para>		
+				/// <para>Field ID: 0240b88c-4348-472e-a9ad-22aac7d3dae2</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis5Constants.Content_BodyFieldName)]
+				public virtual string Content_Body  {get; set;}
+					
+						/// <summary>
+				/// The Content Image field.
+				/// <para></para>
+				/// <para>Field Type: Image</para>		
+				/// <para>Field ID: a7d05526-c33d-41fb-a2bb-5bd43cc4ecff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis5Constants.Content_ImageFieldName)]
+				public virtual Image Content_Image  {get; set;}
+					
+						/// <summary>
+				/// The Meta Description field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 74585fed-e4a9-46bd-b6a0-541b3e865f8e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis5Constants.Meta_DescriptionFieldName)]
+				public virtual string Meta_Description  {get; set;}
+					
+						/// <summary>
+				/// The Meta Keywords field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis5Constants.Meta_KeywordsFieldName)]
+				public virtual string Meta_Keywords  {get; set;}
+					
+						/// <summary>
+				/// The Meta Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: e942d8da-d769-42f0-a5ce-859d5b76abf0</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis5Constants.Meta_TitleFieldName)]
+				public virtual string Meta_Title  {get; set;}
+					
+			
+	}
+}
+namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.FakeFortisTemplates
+{
 
 
+ 	/// <summary>
+	/// IFakeFortis7 Interface
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis7</para>	
+	/// <para>ID: df1bd86d-48ec-4424-8f65-a25fb1dd10fd</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis7Constants.TemplateIdString )] //, Cachable = true
+	public partial interface IFakeFortis7 : IGlassBase , global::Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Page_Types.IContent_Page
+	{
+				}
 
 
+	public static partial class IFakeFortis7Constants{
+
+			public const string TemplateIdString = "df1bd86d-48ec-4424-8f65-a25fb1dd10fd";
+			public static readonly ID TemplateId = new ID(TemplateIdString);
+			public const string TemplateName = "FakeFortis7";
+
+					
+			public static readonly ID Hide_From_NavigationFieldId = new ID("9ab37834-1079-4a6e-b5b5-774c55ae8589");
+			public const string Hide_From_NavigationFieldName = "Hide From Navigation";
+			
+					
+			public static readonly ID Navigation_TitleFieldId = new ID("a2659cbf-9c0c-4703-9cd9-86b5c10b972e");
+			public const string Navigation_TitleFieldName = "Navigation Title";
+			
+					
+			public static readonly ID Content_TitleFieldId = new ID("dd1074e7-7f1c-4178-9078-219edf3bb445");
+			public const string Content_TitleFieldName = "Content Title";
+			
+					
+			public static readonly ID Content_BodyFieldId = new ID("0240b88c-4348-472e-a9ad-22aac7d3dae2");
+			public const string Content_BodyFieldName = "Content Body";
+			
+					
+			public static readonly ID Content_ImageFieldId = new ID("a7d05526-c33d-41fb-a2bb-5bd43cc4ecff");
+			public const string Content_ImageFieldName = "Content Image";
+			
+					
+			public static readonly ID Meta_DescriptionFieldId = new ID("74585fed-e4a9-46bd-b6a0-541b3e865f8e");
+			public const string Meta_DescriptionFieldName = "Meta Description";
+			
+					
+			public static readonly ID Meta_KeywordsFieldId = new ID("6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742");
+			public const string Meta_KeywordsFieldName = "Meta Keywords";
+			
+					
+			public static readonly ID Meta_TitleFieldId = new ID("e942d8da-d769-42f0-a5ce-859d5b76abf0");
+			public const string Meta_TitleFieldName = "Meta Title";
+			
+			
+
+	}
+
+	
+	/// <summary>
+	/// FakeFortis7
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis7</para>	
+	/// <para>ID: df1bd86d-48ec-4424-8f65-a25fb1dd10fd</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis7Constants.TemplateIdString)] //, Cachable = true
+	public partial class FakeFortis7  : GlassBase, IFakeFortis7 
+	{
+	   
+						/// <summary>
+				/// The Hide From Navigation field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: 9ab37834-1079-4a6e-b5b5-774c55ae8589</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis7Constants.Hide_From_NavigationFieldName)]
+				public virtual bool Hide_From_Navigation  {get; set;}
+					
+						/// <summary>
+				/// The Navigation Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: a2659cbf-9c0c-4703-9cd9-86b5c10b972e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis7Constants.Navigation_TitleFieldName)]
+				public virtual string Navigation_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: dd1074e7-7f1c-4178-9078-219edf3bb445</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis7Constants.Content_TitleFieldName)]
+				public virtual string Content_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Body field.
+				/// <para></para>
+				/// <para>Field Type: Rich Text</para>		
+				/// <para>Field ID: 0240b88c-4348-472e-a9ad-22aac7d3dae2</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis7Constants.Content_BodyFieldName)]
+				public virtual string Content_Body  {get; set;}
+					
+						/// <summary>
+				/// The Content Image field.
+				/// <para></para>
+				/// <para>Field Type: Image</para>		
+				/// <para>Field ID: a7d05526-c33d-41fb-a2bb-5bd43cc4ecff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis7Constants.Content_ImageFieldName)]
+				public virtual Image Content_Image  {get; set;}
+					
+						/// <summary>
+				/// The Meta Description field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 74585fed-e4a9-46bd-b6a0-541b3e865f8e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis7Constants.Meta_DescriptionFieldName)]
+				public virtual string Meta_Description  {get; set;}
+					
+						/// <summary>
+				/// The Meta Keywords field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis7Constants.Meta_KeywordsFieldName)]
+				public virtual string Meta_Keywords  {get; set;}
+					
+						/// <summary>
+				/// The Meta Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: e942d8da-d769-42f0-a5ce-859d5b76abf0</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis7Constants.Meta_TitleFieldName)]
+				public virtual string Meta_Title  {get; set;}
+					
+			
+	}
+}
+namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.FakeFortisTemplates
+{
 
 
+ 	/// <summary>
+	/// IFakeFortis3 Interface
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis3</para>	
+	/// <para>ID: e8f2474f-659e-4b64-bea5-a7bc6879eff7</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis3Constants.TemplateIdString )] //, Cachable = true
+	public partial interface IFakeFortis3 : IGlassBase , global::Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Page_Types.IContent_Page
+	{
+				}
+
+
+	public static partial class IFakeFortis3Constants{
+
+			public const string TemplateIdString = "e8f2474f-659e-4b64-bea5-a7bc6879eff7";
+			public static readonly ID TemplateId = new ID(TemplateIdString);
+			public const string TemplateName = "FakeFortis3";
+
+					
+			public static readonly ID Hide_From_NavigationFieldId = new ID("9ab37834-1079-4a6e-b5b5-774c55ae8589");
+			public const string Hide_From_NavigationFieldName = "Hide From Navigation";
+			
+					
+			public static readonly ID Navigation_TitleFieldId = new ID("a2659cbf-9c0c-4703-9cd9-86b5c10b972e");
+			public const string Navigation_TitleFieldName = "Navigation Title";
+			
+					
+			public static readonly ID Content_TitleFieldId = new ID("dd1074e7-7f1c-4178-9078-219edf3bb445");
+			public const string Content_TitleFieldName = "Content Title";
+			
+					
+			public static readonly ID Content_BodyFieldId = new ID("0240b88c-4348-472e-a9ad-22aac7d3dae2");
+			public const string Content_BodyFieldName = "Content Body";
+			
+					
+			public static readonly ID Content_ImageFieldId = new ID("a7d05526-c33d-41fb-a2bb-5bd43cc4ecff");
+			public const string Content_ImageFieldName = "Content Image";
+			
+					
+			public static readonly ID Meta_DescriptionFieldId = new ID("74585fed-e4a9-46bd-b6a0-541b3e865f8e");
+			public const string Meta_DescriptionFieldName = "Meta Description";
+			
+					
+			public static readonly ID Meta_KeywordsFieldId = new ID("6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742");
+			public const string Meta_KeywordsFieldName = "Meta Keywords";
+			
+					
+			public static readonly ID Meta_TitleFieldId = new ID("e942d8da-d769-42f0-a5ce-859d5b76abf0");
+			public const string Meta_TitleFieldName = "Meta Title";
+			
+			
+
+	}
+
+	
+	/// <summary>
+	/// FakeFortis3
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/User Defined/FakeFortisTemplates/FakeFortis3</para>	
+	/// <para>ID: e8f2474f-659e-4b64-bea5-a7bc6879eff7</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IFakeFortis3Constants.TemplateIdString)] //, Cachable = true
+	public partial class FakeFortis3  : GlassBase, IFakeFortis3 
+	{
+	   
+						/// <summary>
+				/// The Hide From Navigation field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: 9ab37834-1079-4a6e-b5b5-774c55ae8589</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis3Constants.Hide_From_NavigationFieldName)]
+				public virtual bool Hide_From_Navigation  {get; set;}
+					
+						/// <summary>
+				/// The Navigation Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: a2659cbf-9c0c-4703-9cd9-86b5c10b972e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis3Constants.Navigation_TitleFieldName)]
+				public virtual string Navigation_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: dd1074e7-7f1c-4178-9078-219edf3bb445</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis3Constants.Content_TitleFieldName)]
+				public virtual string Content_Title  {get; set;}
+					
+						/// <summary>
+				/// The Content Body field.
+				/// <para></para>
+				/// <para>Field Type: Rich Text</para>		
+				/// <para>Field ID: 0240b88c-4348-472e-a9ad-22aac7d3dae2</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis3Constants.Content_BodyFieldName)]
+				public virtual string Content_Body  {get; set;}
+					
+						/// <summary>
+				/// The Content Image field.
+				/// <para></para>
+				/// <para>Field Type: Image</para>		
+				/// <para>Field ID: a7d05526-c33d-41fb-a2bb-5bd43cc4ecff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis3Constants.Content_ImageFieldName)]
+				public virtual Image Content_Image  {get; set;}
+					
+						/// <summary>
+				/// The Meta Description field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 74585fed-e4a9-46bd-b6a0-541b3e865f8e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis3Constants.Meta_DescriptionFieldName)]
+				public virtual string Meta_Description  {get; set;}
+					
+						/// <summary>
+				/// The Meta Keywords field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 6cbc9cfe-37bf-4bfa-8a44-a1a3b5993742</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis3Constants.Meta_KeywordsFieldName)]
+				public virtual string Meta_Keywords  {get; set;}
+					
+						/// <summary>
+				/// The Meta Title field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: e942d8da-d769-42f0-a5ce-859d5b76abf0</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IFakeFortis3Constants.Meta_TitleFieldName)]
+				public virtual string Meta_Title  {get; set;}
+					
+			
+	}
+}
 namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Data
 {
 
@@ -680,4 +1899,3 @@ namespace Testground.Model.Glass.Model.Glass.sitecore.templates.User_Defined.Dat
 			
 	}
 }
-

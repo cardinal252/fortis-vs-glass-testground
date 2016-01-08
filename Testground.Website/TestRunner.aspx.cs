@@ -7,7 +7,9 @@ using Fortis.Providers;
 using Glass.Mapper.Sc;
 using Sitecore.Data;
 using Testground.Website.TestCases;
+using Testground.Website.TestCases.Fields;
 using Testground.Website.TestCases.InterfaceMapping;
+using Testground.Website.TestCases.IsolationMapping;
 using Testground.Website.TestCases.TypeMapping;
 
 namespace Testground.Website
@@ -27,7 +29,8 @@ namespace Testground.Website
 			get { return this.TypeTestCases; }
 		}
 
-		protected override void OnLoad(EventArgs e)
+        
+        protected override void OnLoad(EventArgs e)
 		{
 			base.OnLoad(e);
 
@@ -57,7 +60,8 @@ namespace Testground.Website
 				new ExposeFromItemTypeTestCase(itemFactory, sitecoreContext, spawnProvider), 
 			};
 
-			foreach (var test in this.InterfaceTestCases)
+
+            foreach (var test in this.InterfaceTestCases)
 			{
 				test.Execute();
 			}
@@ -66,6 +70,7 @@ namespace Testground.Website
 			{
 				test.Execute();
 			}
-		}
+            
+        }
 	}
 }

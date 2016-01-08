@@ -46,6 +46,7 @@ namespace Testground.Model.Fortis
 
 #endregion
 
+
 #region Title Field (UserDefined)
 
 namespace Testground.Model.Fortis.Templates.UserDefined
@@ -136,7 +137,6 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 }
 
 #endregion
-
 #region Body Field (UserDefined)
 
 namespace Testground.Model.Fortis.Templates.UserDefined
@@ -227,7 +227,6 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 }
 
 #endregion
-
 #region Image Field (UserDefined)
 
 namespace Testground.Model.Fortis.Templates.UserDefined
@@ -310,7 +309,6 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 }
 
 #endregion
-
 #region Content Page (UserDefined)
 
 namespace Testground.Model.Fortis.Templates.UserDefined
@@ -493,7 +491,6 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 }
 
 #endregion
-
 #region Seo (UserDefined)
 
 namespace Testground.Model.Fortis.Templates.UserDefined
@@ -636,7 +633,6 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 }
 
 #endregion
-
 #region Navigation (UserDefined)
 
 namespace Testground.Model.Fortis.Templates.UserDefined
@@ -753,4 +749,3 @@ namespace Testground.Model.Fortis.Templates.UserDefined
 }
 
 #endregion
-

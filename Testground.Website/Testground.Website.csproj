@@ -21,6 +21,7 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -156,6 +157,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestRunner2.aspx" />
+    <Content Include="TestRunner1.aspx" />
     <Content Include="TestRunner.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -166,10 +169,19 @@
     <Compile Include="App_Start\GlassMapperSc.cs" />
     <Compile Include="App_Start\GlassMapperScCustom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCases\Fields\SingleLineTextFieldTwiceTestCase.cs" />
+    <Compile Include="TestCases\Fields\ThreeFieldsTestCase.cs" />
+    <Compile Include="TestCases\Fields\CheckboxFieldTestCase.cs" />
+    <Compile Include="TestCases\Fields\RichTextFieldTestCase.cs" />
+    <Compile Include="TestCases\Fields\SingleLineTextFieldTestCase.cs" />
     <Compile Include="TestCases\InterfaceMapping\ExposeFromItemTestCase.cs" />
     <Compile Include="TestCases\InterfaceMapping\GetChildrenTestCase.cs" />
     <Compile Include="TestCases\InterfaceMapping\GetItemTestCase.cs" />
+    <Compile Include="TestCases\IsolationMapping\GetChildrenIsolationTestCase.cs" />
+    <Compile Include="TestCases\IsolationMapping\GetItemIsolationTestCase.cs" />
+    <Compile Include="TestCases\IsolationMapping\ReadFieldValueIsolationTestCase.cs" />
     <Compile Include="TestCases\ITestCaseResult.cs" />
+    <Compile Include="TestCases\Rendering\MenuRenderingTestCase.cs" />
     <Compile Include="TestCases\TestCase.cs" />
     <Compile Include="TestCases\ITestCase.cs" />
     <Compile Include="Const.cs" />
@@ -180,6 +192,21 @@
     <Compile Include="TestCases\TypeMapping\GetItemTestCase.cs" />
     <Compile Include="TestCases\TypeMapping\ReadFieldValueTestCase.cs" />
     <Compile Include="TestCases\TypeMapping\RenderFieldTestCase.cs" />
+    <Compile Include="TestCases\IsolationMapping\GetItemPathIsolationTestCase.cs" />
+    <Compile Include="TestRunner2.aspx.cs">
+      <DependentUpon>TestRunner2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestRunner2.aspx.designer.cs">
+      <DependentUpon>TestRunner2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestRunner1.aspx.cs">
+      <DependentUpon>TestRunner1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestRunner1.aspx.designer.cs">
+      <DependentUpon>TestRunner1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestRunner.aspx.cs">
       <DependentUpon>TestRunner.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
